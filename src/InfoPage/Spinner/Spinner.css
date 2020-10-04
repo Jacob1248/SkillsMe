@@ -4,6 +4,7 @@
     width: 100%;
     height: fit-content;
     padding: 1rem;
+    transition: all 0.4s;
 }
 
 .spinner-container img{
@@ -44,4 +45,10 @@
 .header-modal{
     margin-top: 1rem;
     margin-bottom: 5rem;
+}
+
+.spinner-container:hover{
+    transform: translateY(-2%);
+    box-shadow: 0px 20px 40px lightgray;
+    transition: all 0.4s;
 }
