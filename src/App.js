@@ -4,6 +4,8 @@ import './App.css';
 import { Navbar } from './Navbar/Navbar';
 import { Landing } from './Landing/Landing';
 import { LogoPage } from './LogoPage/LogoPage';
+import { InfoPage } from './InfoPage/InfoPage';
+import { Spinner } from './InfoPage/Spinner/Spinner';
 
 function App() {
   return (
@@ -33,6 +35,17 @@ function App() {
         <Navbar></Navbar>
         <Landing></Landing>
         <LogoPage></LogoPage>
+        <InfoPage
+        header={"CV is cheap. Show me the code."}
+        explanationHeader={"Choose a Catalog to build a project with your capability"}
+        mainExplanationDescription=
+        {
+        `Skillsme “Talents Pool” Catalog will get updated every week. This will contain the topic and requirements to complete your project to get rated on. Talents catalog has a time limit of 48 hours from the time you see the question.`
+        }
+        subExplanationDescription={`Talents Pool Catalog rating is the only rating that will count towards getting recruited by our clients worldwide.`}
+        Item={Spinner}
+        width={"30%"}
+        ></InfoPage>
       </body>
     </div>
   );

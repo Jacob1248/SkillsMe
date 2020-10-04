@@ -1,0 +1,18 @@
+.info-page{
+    height: fit-content;
+    padding: 5rem;
+    width: calc(100vw - 0.9rem);
+    display: flex;
+    padding: 5rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    justify-content: space-around;
+}
+
+.item-holder{
+    width: 50%;
+    height: fit-content;
+}

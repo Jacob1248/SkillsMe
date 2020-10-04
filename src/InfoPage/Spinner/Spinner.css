@@ -1,0 +1,47 @@
+.spinner-container{
+    border-radius: 0.8rem;
+    box-shadow: lightgray 5px 5px 5px 5px;
+    width: 100%;
+    height: fit-content;
+    padding: 1rem;
+}
+
+.spinner-container img{
+    border-top-right-radius: 0.8rem;
+    border-top-left-radius: 0.8rem;
+    width: calc(100% + 2rem);
+    height: 10rem;
+    margin-left: -1rem;
+    margin-top: -1rem;
+    margin-right: -1rem;
+}
+
+.name-img{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    margin-bottom: 2rem;
+}
+
+.name-img img{
+    width: 2rem;
+    height: 2rem;
+    margin: auto 0;
+}
+
+.name-img span{
+    margin: auto 0;
+} 
+
+.tag{
+    background-color: lightgray;
+    border-radius: 0.8rem;
+    height: fit-content;
+    padding: 0.3rem;
+    font-size: 0.8rem;
+}
+
+.header-modal{
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+}
