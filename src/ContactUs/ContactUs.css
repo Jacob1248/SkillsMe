@@ -1,0 +1,91 @@
+.contact{
+    width: calc(80% - 5rem);
+    margin-left: calc(10% - 2.5rem);
+    border-radius: 0.8rem;
+    border: thick purple dashed;
+    background-color: #F6FCFF;
+    justify-content: space-around;
+    padding: 5rem;
+    display: flex;
+}
+
+.contact-form input {
+    width: 43%;
+    height: 2rem;
+    margin-left: 2%;
+    margin-bottom: 1rem;
+    border-radius: 0.8rem;
+    border: transparent;
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0px 1px 1px lightgray;
+}
+
+.contact-form textarea{
+    resize: none;
+    width: 43%;
+    height: 2rem;
+    margin-left: 2%;
+    margin-bottom: 1rem;
+    border-radius: 0.8rem;
+    border: transparent;
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0px 1px 1px lightgray;
+
+}
+
+.contact-form textarea{
+    width: 93%;
+    height: 10rem;
+}
+
+.contact-info{
+    width: 35%;
+}
+
+.contact-item{
+    display: flex;
+    margin-top: 2rem;
+}
+
+.contact-glyph{
+    color: darkgray;
+}
+
+.contact-info-holder{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+}
+
+.contact-form{
+    width: 65%;
+    justify-content: space-between;
+}
+
+.purple-gradient-shifter{
+    background:linear-gradient(90deg, #7526d7 0%, #f269fd 50%, #7526d7 160%);background-size: 200% 200%;
+    animation: back-gradient 0.5s forwards ease-in-out;
+}
+
+.purple-gradient-shifter:hover{
+    animation: gradient 0.5s forwards ease-in-out;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+@keyframes back-gradient {
+    0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

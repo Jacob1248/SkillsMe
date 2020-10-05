@@ -13,6 +13,7 @@ import { Signup } from './SignupPage/Signup.jsx';
 import { Review } from './Reviews/Review';
 import { JudgePage } from './JudgePage/JudgePage';
 import { FAQ } from './faq/FAQ';
+import { ContactUs } from './ContactUs/ContactUs';
 
 function App() {
   return (
@@ -100,6 +101,7 @@ function App() {
         <Review></Review>
         <JudgePage></JudgePage>
         <FAQ></FAQ>
+        <ContactUs></ContactUs>
       </body>
     </div>
   );
