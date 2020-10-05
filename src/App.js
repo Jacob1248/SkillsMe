@@ -11,6 +11,8 @@ import { Users } from './InfoPage/Users/Users';
 import { ImageContainer } from './InfoPage/ImageContainer';
 import { Signup } from './SignupPage/Signup.jsx';
 import { Review } from './Reviews/Review';
+import { JudgePage } from './JudgePage/JudgePage';
+import { FAQ } from './faq/FAQ';
 
 function App() {
   return (
@@ -96,6 +98,8 @@ function App() {
 
         <Signup></Signup>
         <Review></Review>
+        <JudgePage></JudgePage>
+        <FAQ></FAQ>
       </body>
     </div>
   );

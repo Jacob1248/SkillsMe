@@ -1,0 +1,114 @@
+import React, { useState, useEffect } from 'react';
+import "./FAQ.css";
+import woman from "./woman.png"
+import gsap from "gsap";
+
+export const FAQ = () =>{
+    
+    let g = gsap.timeline();
+    let [open,setOpen] = useState(null);
+
+    useEffect(
+        ()=>{
+            
+            function f(){
+                if(open!=null){
+                    g
+                    .clear()
+                    .to(`.answer-holder`,{opacity:0,margin:'0',duration:"0.5",height:"0",display:"none"},0)
+                    .to(`.${open}`,{display:"initial",opacity:1,width:"fit-content",height:"fit-content",marginTop:"2rem",duration:"0.5"},0)
+                }
+                else{
+                    g
+                .clear()
+                .to(`.answer-holder`,{opacity:0,margin:'0',duration:"0.5",height:"0",display:"none"},0)
+                }
+            }
+    
+            f();
+        }
+    )
+
+    const openFAQ = (e) =>{
+        if(open!=null){
+            if(e===open){
+                setOpen(null);
+
+            }
+            else{
+                setOpen(e)
+            }
+            
+            return;
+        }
+        else{
+            setOpen(e)
+
+        }
+    }
+
+    return(
+        <div className="faq">
+            <img src={woman} style={{width:"40%",height:"50%"}}></img>
+            <div className="explanation-container" style={{width:"50%"}}>
+                <span className="purple-header">FAQ</span>
+                <span className="explanation-header">Frequently Asked Questions</span>                
+                <div className="swirl" style={{marginBottom:"2rem"}}>
+                </div>
+                <div className="question-container" onClick={()=>openFAQ('one')}>
+                    <span>01. Is Skillsme a recruiting agency?</span>
+                    <div className="answer-holder one">
+                    <p className="answer">We are not a recruitment agency! Skillsme is an open talent pool that all companies can access to and find the talent they needed. As long as you have a valid rating on Skillsme, you would have the chance to engage with any company which is looking for a suitable IT talent.</p>
+                    </div>
+                    <div className="purple-rectangle"/>
+                    <div className="purple-rectangle" style={{width:"3rem",height:"4rem",marginRight:"0.5rem"}}/>
+                    <div className="purple-rectangle" style={{width:"2rem",height:"2rem",marginRight:"1rem",top:"1rem"}}/>
+                </div>
+                <div className="question-container" onClick={()=>openFAQ('two')}>
+                    <span>02. How much does it cost for validating?</span>
+                    <div className="answer-holder two">
+                        <p className="answer">Good news! Getting validation from the top developers on Skillsme is totally free. You just need to post your project to see what they think about your work.</p>
+                    </div>
+                    <div className="purple-rectangle"/>
+                    <div className="purple-rectangle" style={{width:"3rem",height:"4rem",marginRight:"0.5rem"}}/>
+                    <div className="purple-rectangle" style={{width:"2rem",height:"2rem",marginRight:"1rem",top:"1rem"}}/>
+                </div>
+                <div className="question-container" onClick={()=>openFAQ('three')}>
+                    <span>03. What is Skillsme Catalog?</span>
+
+                    <div className="answer-holder three">
+                        <p className="answer ">
+                            Skillsme Catalog is a project topic with several specified requirements for coders to build their projects and show their capabilities through it. There are two types of Catalogs on Skillsme: Practice and Rating.
+
+                            Practice Catalog allows you to practice your coding skills with real projects, you can try them unlimited times, but such projects won't be counted into your stats and are not visible for employers.
+
+                            Rating Catalog, on the other hand, is the time-limited topic that Skillsme renews every week. Each Rating Catalog can only try once for each user, and only the project under Rating Catalog can be seen by employers and help you get your job invitation.
+                        </p>
+                    </div>
+                    <div className="purple-rectangle"/>
+                    <div className="purple-rectangle" style={{width:"3rem",height:"4rem",marginRight:"0.5rem"}}/>
+                    <div className="purple-rectangle" style={{width:"2rem",height:"2rem",marginRight:"1rem",top:"1rem"}}/>
+                </div>
+                <div className="question-container" onClick={()=>openFAQ('four')}>
+                    <span>04. How long would it take for validation?</span>
+
+                    <div className="answer-holder four">
+                        <p className="answer">The time may vary depending on your code quality, as our Judges would give rating only base on their personal interest. But normally a project can get validated within 3 days.</p>
+                    </div>
+                    <div className="purple-rectangle"/>
+                    <div className="purple-rectangle" style={{width:"3rem",height:"4rem",marginRight:"0.5rem"}}/>
+                    <div className="purple-rectangle" style={{width:"2rem",height:"2rem",marginRight:"1rem",top:"1rem"}}/>
+                </div>
+                <div className="question-container" onClick={()=>openFAQ('five')}>
+                    <span>05. How to make sure the rating is fair?</span>
+                    <div className="answer-holder five">
+                        <p className="answer ">All users on our platform are anonymous, and no one can invite others to review their works or search for a certain project. Your projects' rating will only be judge by the quality of the project. Meanwhile, our pushing algorithm will ensure every project has a fair chance to be visible to other Judges within our community.</p>
+                    </div>
+                    <div className="purple-rectangle"/>
+                    <div className="purple-rectangle" style={{width:"3rem",height:"4rem",marginRight:"0.5rem"}}/>
+                    <div className="purple-rectangle" style={{width:"2rem",height:"2rem",marginRight:"1rem",top:"1rem"}}/>
+                </div>
+            </div>
+        </div>
+    )
+}
