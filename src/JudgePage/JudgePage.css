@@ -1,5 +1,47 @@
 .judge-page{
     width: 100vw;
     height: fit-content;
-    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: #F3F4F4;
 }
+
+.judge-page .swirl{
+    margin: 0 auto;
+}
+
+.judge-page .logo-container img{
+    border-radius: 100%;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    z-index:1000;
+    position: relative;
+    opacity: 0.5;
+}
+
+.judge-page .logo-container img:hover{
+    opacity: 1;
+}
+
+.judge-container{
+    position: relative;
+}
+
+
+.modal-judge{
+    width: 15rem;
+    height: 0;
+    padding: 2rem;
+    position: absolute;
+    z-index:1;
+    left: 50%;
+    transform: translate(-50%,-80%);
+    border-radius: 0.8rem;
+    background-color: white;
+    display: none;
+}
+
