@@ -10,12 +10,10 @@ ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 export const Landing = () =>{
     const [scrollMagic, setScrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
-        timelineOne: gsap.timeline(),
-        timelineTwo:gsap.timeline(),
-        timelineThree:gsap.timeline()
+        timelineOne: gsap.timeline()
     });
 
-    const { controller,timelineOne,timelineTwo,timelineThree } = scrollMagic;
+    const { controller,timelineOne} = scrollMagic;
 
     useEffect(
         
@@ -36,41 +34,13 @@ export const Landing = () =>{
                   .setTween(timelineOne)
                   .setPin("#main-header")
                   .addTo(controller);
-
-                  timelineTwo
-                  .to('.nav',{ position:"absolute" , opacity:0,backgroundColor:"transparent",transform:"translateY(-50%)" ,duration:0},0)
-                  .to('.nav', { transform:"translateY(0)",position:"fixed" , opacity:1 , ease:Power1.easeInOut ,duration:0.5,backgroundColor:"#6610f2" },0)
-                  new ScrollMagic.Scene({
-                    triggerElement: ".landing",
-                    offset: "350",
-                    duration: "0%"
-                  })
-                    .setTween(timelineTwo)
-                    .setPin("#main-header")
-                    .addTo(controller);
-                  timelineThree
-                  .to('.nav',{ position:"absolute", opacity:1,backgroundColor:"transparent",transform:"translateY(0%)" ,duration:0.5},0)
-                  new ScrollMagic.Scene({
-                    triggerElement: ".landing",
-                    offset: "0",
-                    duration: "0%"
-                  })
-                    .setTween(timelineThree)
-                    .setPin("#main-header")
-                    .addTo(controller);
-
-                window.addEventListener('scroll',setNavAnimation)
             }
             f();
         }
     )
 
-    const setNavAnimation = () =>{
-        console.log("hello")
-    }
-
     return(
-        <div className="landing" onScroll={()=>setNavAnimation()}>
+        <div className="landing">
             <div className="info-area">
                 <span className="main-header">Land a coding</span>
                 <span className="main-header">job with </span>

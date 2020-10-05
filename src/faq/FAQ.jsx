@@ -1,27 +1,57 @@
 import React, { useState, useEffect } from 'react';
 import "./FAQ.css";
 import woman from "./woman.png"
-import gsap from "gsap";
+import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
+import ScrollMagic from "scrollmagic";
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 export const FAQ = () =>{
     
     let g = gsap.timeline();
     let [open,setOpen] = useState(null);
 
+    const [scrollMagic, setScrollMagic] = useState({
+        controller: new ScrollMagic.Controller(),
+        timelineOne: gsap.timeline(),
+    });
+
+    const { controller,timelineOne} = scrollMagic;
+    let textRef,pageRef,imageRef=null;
+
     useEffect(
         ()=>{
             
             function f(){
+                
+
                 if(open!=null){
+                    if(open==='0'){
+
                     g
                     .clear()
                     .to(`.answer-holder`,{opacity:0,margin:'0',duration:"0.5",height:"0",display:"none"},0)
-                    .to(`.${open}`,{display:"initial",opacity:1,width:"fit-content",height:"fit-content",marginTop:"2rem",duration:"0.5"},0)
+                    }
+                    else{
+                        g
+                        .clear()
+                        .to(`.answer-holder`,{opacity:0,margin:'0',duration:"0.5",height:"0",display:"none"},0)
+                        .to(`.${open}`,{display:"initial",opacity:1,width:"fit-content",height:"fit-content",marginTop:"2rem",duration:"0.5"},0)
+
+                    }
                 }
                 else{
-                    g
-                .clear()
-                .to(`.answer-holder`,{opacity:0,margin:'0',duration:"0.5",height:"0",display:"none"},0)
+                timelineOne
+                .fromTo(textRef, { transform:"translateX(5%)" , opacity:0 }, { transform:"translateX(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.8 },0)
+                new ScrollMagic.Scene({
+                  triggerElement: pageRef,
+                  triggerHook: "onEnter",
+                  duration: "0%",
+                  offset:"200"
+                })
+                  .setTween(timelineOne)
+                  .setPin("#main-header")
+                  .addTo(controller);
                 }
             }
     
@@ -32,7 +62,7 @@ export const FAQ = () =>{
     const openFAQ = (e) =>{
         if(open!=null){
             if(e===open){
-                setOpen(null);
+                setOpen('0');
 
             }
             else{
@@ -48,9 +78,9 @@ export const FAQ = () =>{
     }
 
     return(
-        <div className="faq">
-            <img src={woman} style={{width:"40%",height:"50%"}}></img>
-            <div className="explanation-container" style={{width:"50%"}}>
+        <div ref={ref=>pageRef=ref} className="faq">
+            <img ref={ref=>imageRef=ref} src={woman} style={{width:"40%",height:"50%"}}></img>
+            <div ref={ref=>textRef=ref} className="explanation-container" style={{width:"50%"}}>
                 <span className="purple-header">FAQ</span>
                 <span className="explanation-header">Frequently Asked Questions</span>                
                 <div className="swirl" style={{marginBottom:"2rem"}}>

@@ -1,13 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Signup.css";
-import girl from "./girl.jpg";
+import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
+import ScrollMagic from "scrollmagic";
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 export const Signup = () =>{
 
+    const [scrollMagic, setScrollMagic] = useState({
+        controller: new ScrollMagic.Controller(),
+        timelineOne: gsap.timeline(),
+    });
+
+    const { controller,timelineOne} = scrollMagic;
+    let textRef,pageRef=null;
+
+    useEffect(
+        
+        ()=>{
+                
+            function f(){
+                timelineOne
+                .fromTo(textRef, { transform:"translateX(5%)" , opacity:0 }, { transform:"translateX(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.8 },0)
+                new ScrollMagic.Scene({
+                  triggerElement: pageRef,
+                  triggerHook: "onEnter",
+                  duration: "0%",
+                  offset:"200"
+                })
+                  .setTween(timelineOne)
+                  .setPin("#main-header")
+                  .addTo(controller);
+            }
+            f();
+        }
+    )
+
     return(
-        <div className="signup">
+        <div ref={ref=>pageRef=ref} className="signup">
             <div className="gradient-bg row-reverse" style={{height:"65vh"}}>
-                <div className="text-signup">
+                <div ref={ref=>textRef=ref} className="text-signup">
                     <span style={{fontSize:"2.5rem",fontWeight:"bold",color:"white"}}>We let coders land their dream jobs without a resume</span>
                     <button className="gradient-shifter" style={{marginTop:"2rem",fontSize:"1rem",padding:"1.2rem"}}>Sign Up Now</button>
                 </div>

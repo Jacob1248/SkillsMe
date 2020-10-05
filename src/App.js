@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Navbar } from './Navbar/Navbar';
@@ -15,8 +15,87 @@ import { JudgePage } from './JudgePage/JudgePage';
 import { FAQ } from './faq/FAQ';
 import { ContactUs } from './ContactUs/ContactUs';
 import { Footer } from './Footer/Footer';
+import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
+import ScrollMagic from "scrollmagic";
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 function App() {
+  const [scrollMagic, setScrollMagic] = useState({
+      controller: new ScrollMagic.Controller(),
+      timelineOne: gsap.timeline(),
+      timelineTwo:gsap.timeline(),
+  });
+
+  const { controller,timelineOne,timelineTwo } = scrollMagic;
+  let triggerRef = null;
+  let g = gsap.timeline();
+  useEffect(
+      
+      ()=>{
+              
+          function f(){
+                  console.log(window.scrollY)
+                if(window.scrollY>350){
+                  console.log("hello")
+                  timelineOne
+                  .to('.nav',{ position:"absolute" , opacity:0,backgroundColor:"transparent",transform:"translateY(-50%)" ,duration:0},0)
+                  .to('.nav', { transform:"translateY(0)",position:"fixed" , opacity:1 , ease:Power1.easeInOut ,duration:0.5,backgroundColor:"#6610f2" },0)
+                  new ScrollMagic.Scene({
+                    triggerElement: triggerRef,
+                    offset:'350',
+                    duration: "0%"
+                  })
+                    .setTween(timelineOne)
+                    .setPin("#main-header")
+                    .addTo(controller);
+                  timelineTwo
+                  .to('.nav',{ position:"absolute", opacity:1,backgroundColor:"transparent",transform:"translateY(0%)" ,duration:0.5},0)
+                  new ScrollMagic.Scene({
+                    triggerElement: triggerRef,
+                    offset: 0,
+                    duration: "0%"
+                  })
+                    .setTween(timelineTwo)
+                    .setPin("#main-header")
+                    .addTo(controller)
+                    
+                    setTimeout(()=>{g
+                      .to('.nav',{ position:"absolute" , opacity:0,backgroundColor:"transparent",transform:"translateY(-50%)" ,duration:0},0)
+                      .to('.nav', { transform:"translateY(0)",position:"fixed" , opacity:1 , ease:Power1.easeInOut ,duration:0.5,backgroundColor:"#6610f2" },0)
+                      
+                    },1000)
+                    
+
+                }
+                else{
+                  timelineOne
+                  .to('.nav',{ position:"absolute" , opacity:0,backgroundColor:"transparent",transform:"translateY(-50%)" ,duration:0},0)
+                  .to('.nav', { transform:"translateY(0)",position:"fixed" , opacity:1 , ease:Power1.easeInOut ,duration:0.5,backgroundColor:"#6610f2" },0)
+                  new ScrollMagic.Scene({
+                    triggerElement: triggerRef,
+                    offset: '350',
+                    duration: "0%"
+                  })
+                    .setTween(timelineOne)
+                    .setPin("#main-header")
+                    .addTo(controller);
+                  timelineTwo
+                  .to('.nav',{ position:"absolute", opacity:1,backgroundColor:"transparent",transform:"translateY(0%)" ,duration:0.5},0)
+                  new ScrollMagic.Scene({
+                    triggerElement: triggerRef,
+                    offset: '0',
+                    duration: "0%"
+                  })
+                    .setTween(timelineTwo)
+                    .setPin("#main-header")
+                    .addTo(controller);
+
+                }
+          }
+          f();
+      }
+  )
   return (
     <div className="App">
       <header className="App-header">
@@ -40,7 +119,7 @@ function App() {
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       />
       </header>
-      <body className="body">
+      <body ref={ref=>triggerRef=ref} className="body">
         <Navbar></Navbar>
         <Landing></Landing>
         <LogoPage></LogoPage>

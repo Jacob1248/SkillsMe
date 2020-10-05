@@ -1,14 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Review.css";
 import avatar1 from "./avatar1.jpg";
 import polygon from "./polygon.png";
 import avatar2 from "./avatar2.jfif";
+import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
+import ScrollMagic from "scrollmagic";
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+
 
 export const Review = () =>{
 
+    const [scrollMagic, setScrollMagic] = useState({
+        controller: new ScrollMagic.Controller(),
+        timelineOne: gsap.timeline(),
+    });
+
+    const { controller,timelineOne} = scrollMagic;
+    let textRef,pageRef=null;
+
+    useEffect(
+        
+        ()=>{
+                
+            function f(){
+                timelineOne
+                .fromTo(textRef, { transform:"translateX(-5%)" , opacity:0 }, { transform:"translateX(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.8 },0)
+                new ScrollMagic.Scene({
+                  triggerElement: pageRef,
+                  triggerHook: "onEnter",
+                  duration: "0%",
+                  offset:"200"
+                })
+                  .setTween(timelineOne)
+                  .setPin("#main-header")
+                  .addTo(controller);
+            }
+            f();
+        }
+    )
+
     return(
-        <div className="review">
-            <span className="main-review" style={{fontSize:"2.2rem",fontWeight:"bold",color:"white"}}>
+        <div ref={ref=>pageRef=ref} className="review">
+            <span ref={ref=>textRef=ref} className="main-review" style={{fontSize:"2.2rem",fontWeight:"bold",color:"white"}}>
                 Skillsme makes coders expertise intelligible.
             </span>
             <div className="bubble-holder">
