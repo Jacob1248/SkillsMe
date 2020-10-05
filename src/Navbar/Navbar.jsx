@@ -6,7 +6,7 @@ import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
-export const Navbar = () =>{
+export const Navbar = (props) =>{
     const [scrollMagic, setScrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
         timelineOne: gsap.timeline(),
@@ -24,22 +24,42 @@ export const Navbar = () =>{
         }
     )
 
+    const gotoViewMode = () =>{
+        props.resetAll()
+    }
+
     return(
         <nav className="nav">
-            <ul>
-                <a href="index.html" title="Logo"><img src={logo} alt="images" /></a>
+            {
+                props.commentMode?
                 <ul>
-                    <li><a>Home</a></li>
-                    <li><a>Skillsme Uni</a></li>
-                    <li><a>Skillsme Talent</a></li>
-                    <li><a>Press</a></li>
+                    <a href="#" title="Logo"><span style={{fontSize:"2rem"}}>In comment mode</span></a>
                 </ul>
+                :
+                <ul>
+                    <a href="index.html" title="Logo"><img src={logo} alt="images" /></a>
+                    <ul>
+                        <li><a>Home</a></li>
+                        <li><a>Skillsme Uni</a></li>
+                        <li><a>Skillsme Talent</a></li>
+                        <li><a>Press</a></li>
+                    </ul>
+    
+                </ul>
+            }
+            {
+                props.commentMode?
+                <ul>
+                    <li><button id="close-button" onClick={()=>gotoViewMode()} className="close-button">x</button></li>
+                </ul>
+                :
 
-            </ul>
             <ul>
-                <li><button className="button-login" style={{content:"Log In"}}><span>Log In</span></button></li>
+                <li><button className="button-login" id="close-button" style={{content:"Log In"}}><span>Log In</span></button></li>
                 <li><button className="button-signup" style={{content:"Log In"}}><span>Sign Up</span></button></li>
             </ul>
+
+            }
         </nav>
     )
 }

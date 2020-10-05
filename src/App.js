@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import { Navbar } from './Navbar/Navbar';
 import { Landing } from './Landing/Landing';
@@ -18,6 +17,8 @@ import { Footer } from './Footer/Footer';
 import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
 import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+import { ToolBar } from './ToolBar/ToolBar';
+import { CommentToolbar } from './CommentToolbar/CommentToolbar';
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 function App() {
@@ -30,14 +31,14 @@ function App() {
   const { controller,timelineOne,timelineTwo } = scrollMagic;
   let triggerRef = null;
   let g = gsap.timeline();
+  let [comment,openComment] = useState(false)
+  let [color,openColor] = useState(false)
+
   useEffect(
       
       ()=>{
               
           function f(){
-                  console.log(window.scrollY)
-                if(window.scrollY>350){
-                  console.log("hello")
                   timelineOne
                   .to('.nav',{ position:"absolute" , opacity:0,backgroundColor:"transparent",transform:"translateY(-50%)" ,duration:0},0)
                   .to('.nav', { transform:"translateY(0)",position:"fixed" , opacity:1 , ease:Power1.easeInOut ,duration:0.5,backgroundColor:"#6610f2" },0)
@@ -60,42 +61,83 @@ function App() {
                     .setPin("#main-header")
                     .addTo(controller)
                     
+                if(window.scrollY>350){
                     setTimeout(()=>{g
                       .to('.nav',{ position:"absolute" , opacity:0,backgroundColor:"transparent",transform:"translateY(-50%)" ,duration:0},0)
                       .to('.nav', { transform:"translateY(0)",position:"fixed" , opacity:1 , ease:Power1.easeInOut ,duration:0.5,backgroundColor:"#6610f2" },0)
                       
                     },1000)
-                    
-
-                }
-                else{
-                  timelineOne
-                  .to('.nav',{ position:"absolute" , opacity:0,backgroundColor:"transparent",transform:"translateY(-50%)" ,duration:0},0)
-                  .to('.nav', { transform:"translateY(0)",position:"fixed" , opacity:1 , ease:Power1.easeInOut ,duration:0.5,backgroundColor:"#6610f2" },0)
-                  new ScrollMagic.Scene({
-                    triggerElement: triggerRef,
-                    offset: '350',
-                    duration: "0%"
-                  })
-                    .setTween(timelineOne)
-                    .setPin("#main-header")
-                    .addTo(controller);
-                  timelineTwo
-                  .to('.nav',{ position:"absolute", opacity:1,backgroundColor:"transparent",transform:"translateY(0%)" ,duration:0.5},0)
-                  new ScrollMagic.Scene({
-                    triggerElement: triggerRef,
-                    offset: '0',
-                    duration: "0%"
-                  })
-                    .setTween(timelineTwo)
-                    .setPin("#main-header")
-                    .addTo(controller);
-
                 }
           }
           f();
       }
   )
+
+  const openCommentWindow = () =>{
+    if(highlightedElement.current)
+      highlightedElement.current.style.border = "none"
+      if(clickedElement){
+        let c= clickedElement
+        c.current.style.border = "none"
+        setClickedElement(null)
+      }
+    openComment(!comment)
+  }
+
+  const resetAll = () =>{
+    if(highlightedElement.current)
+      highlightedElement.current.style.border = "none"
+    if(clickedElement){
+      let c= clickedElement
+      c.current.style.border = "none"
+      setClickedElement(null)
+    }
+    openComment(false)
+    openColor(false)
+  }
+
+  let highlightedElement = useRef(null)
+
+  let [clickedElement,setClickedElement] = useState(null)
+
+  const highlightElement = (e) =>{
+    if(e.target.id==="close-button")
+      return;
+    if(clickedElement==null){
+      if(e.target!=highlightedElement.current){
+        if(highlightedElement.current)
+          highlightedElement.current.style.border = "none"
+        highlightedElement.current = e.target;
+        e.target.style.border = "thick red solid"
+      }
+    }
+  }
+
+  const openCommentEditor = () =>{
+
+  }
+
+  const clickElement = (e) =>{
+    if(e.target.id==="close-button")
+      return;
+    if(e.target!=clickedElement){
+      let c = clickedElement
+      if(clickedElement)
+        c.style.border = "none"
+      e.target.style.border = "thick red solid"
+      setClickedElement(e.target);
+      openCommentEditor();
+    }
+    else{
+      if(clickedElement)
+      {
+        let c = clickedElement
+        c.style.border = "none"
+        setClickedElement(null);
+      }
+    }
+  } 
+
   return (
     <div className="App">
       <header className="App-header">
@@ -119,8 +161,8 @@ function App() {
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       />
       </header>
-      <body ref={ref=>triggerRef=ref} className="body">
-        <Navbar></Navbar>
+      <body ref={ref=>triggerRef=ref} onMouseMove={(e)=>comment?highlightElement(e):""} onClick={(e)=>comment?clickElement(e):""} className="body" >
+        <Navbar resetAll={resetAll} commentMode={comment}></Navbar>
         <Landing></Landing>
         <LogoPage></LogoPage>
         <InfoPage
@@ -183,6 +225,8 @@ function App() {
         <FAQ></FAQ>
         <ContactUs></ContactUs>
         <Footer></Footer>
+        <ToolBar openCommentWindow={openCommentWindow}></ToolBar>
+        <CommentToolbar clicked={clickedElement!=null}></CommentToolbar>
       </body>
     </div>
   );

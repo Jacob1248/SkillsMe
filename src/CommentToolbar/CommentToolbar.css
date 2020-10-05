@@ -1,0 +1,14 @@
+.comment-toolbar{
+    position: fixed;
+    bottom: 1rem;
+    width: fit-content;
+    height: fit-content;
+    background-color: purple;
+    color: white;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    justify-content: space-around;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}

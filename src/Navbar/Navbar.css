@@ -48,3 +48,7 @@ nav button{
 .button-signup:after{
     content:'Sign Up'
 }
+
+.close-button:after{
+    content:'x'
+}

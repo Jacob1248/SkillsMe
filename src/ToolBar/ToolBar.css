@@ -1,0 +1,41 @@
+.toolbar{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.tooltip{
+    bottom: 0;
+    right: 0;
+    border-radius: 100%;
+    width: 4rem;
+    height: 4rem;
+    background-color: purple;
+    cursor: pointer;
+    margin-top: 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.tooltip span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+}
+
+.menu-options{
+    text-align: center;
+    color: white;
+    border-radius: 0.4rem;
+    width: 4rem;
+    transform: scaleY(0);
+    background-color: purple;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:fit-content;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}

@@ -10,6 +10,29 @@ import logo from "../Navbar/logo.png"
 
 export const Footer = () =>{
 
+    const emailRegex = /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$/
+
+    let emailRef = null;
+
+    const matchEmail = () =>{
+        if(emailRef.value.trim()!="" || emailRef.value.trim()!=undefined){
+            if(!emailRegex.test(emailRef.value.trim())){
+                return false
+            }
+            return true
+        }
+        return false;
+    }
+
+    const validateEmail = () =>{
+        if(!matchEmail()){
+            alert('Your email id is empty/not valid')
+        }
+        else{
+            alert('Success!')
+        }
+    }
+
     return(
         <div className="footer">
             <div className="partners">
@@ -27,8 +50,8 @@ export const Footer = () =>{
                 <div className="footer-form">
                     <span style={{fontSize:"0.8rem"}}>Subscribe us with your email to keep yourself updated!</span>
                     <div className="input-button">
-                        <input type="text" placeholder="youremail@email.com"></input>
-                        <button className="gradient-shifter purple-gradient-shifter">Join Now</button>
+                        <input ref={ref=>emailRef=ref} type="text" placeholder="youremail@email.com"></input>
+                        <button onClick={()=>validateEmail()} className="gradient-shifter purple-gradient-shifter">Join Now</button>
                     </div>
                     <span style={{fontSize:"0.8rem"}}>*Subscribe today for update.</span>
                 </div>
