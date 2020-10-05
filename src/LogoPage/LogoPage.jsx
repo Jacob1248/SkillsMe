@@ -27,6 +27,9 @@ import three from "./03.png"
 import one from "./01.png"
 
 export const LogoPage = () =>{
+    //logos-right
+    //header-bottm
+    //explanation-left
 
     return(
         <div className="logo-page">

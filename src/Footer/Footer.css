@@ -1,12 +1,13 @@
 .footer{
     width: 100vw;
-    height: fit-content;
     background-image: url(./01.png);
     position: absolute;
     transform: translateY(-9rem);
     z-index: -11;
     padding-top: 9rem;
     color: white;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .partners{
@@ -30,6 +31,10 @@
 .footer-widgets{
     margin-left: 5%;
     width: 90%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
 }
 
 .input-button{
@@ -55,4 +60,82 @@
 .input-button button{
     border-radius: 0.2rem;
     transform: translateX(-2%);
+}
+
+.footer-info{
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-info span{
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+}
+
+.footer-info span:nth-child(1){
+    margin-bottom: 3rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.info-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-end{
+    background-color:#080b4f;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: lightgray;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.footer-end img{
+    width: 7rem;
+}
+
+.footer-end span{
+    margin: auto 0;
+}
+
+.circle-spin{
+    border: thick #45c7ff dashed;
+    border-radius: 100%;
+    width: 50vw;
+    height: 50vw;
+    position: absolute;
+    top: -50%;
+    left: -10%;
+    animation: spins 30s infinite ease-in-out;
+    display: inline-block;
+    z-index: -1;
+}
+
+.small-circle{
+    width: 35vw;
+    height: 35vw;
+    top: 65%;
+    left: 70%;
+    position: absolute;
+}
+
+@keyframes spins {
+    0% {
+        transform: rotate(0deg);
+    }
+          
+    50% {
+        transform: rotate(360deg);
+    }
+
+    0% {
+        transform: rotate(0deg);
+    }
 }
