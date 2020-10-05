@@ -14,6 +14,7 @@ import { Review } from './Reviews/Review';
 import { JudgePage } from './JudgePage/JudgePage';
 import { FAQ } from './faq/FAQ';
 import { ContactUs } from './ContactUs/ContactUs';
+import { Footer } from './Footer/Footer';
 
 function App() {
   return (
@@ -102,6 +103,7 @@ function App() {
         <JudgePage></JudgePage>
         <FAQ></FAQ>
         <ContactUs></ContactUs>
+        <Footer></Footer>
       </body>
     </div>
   );
