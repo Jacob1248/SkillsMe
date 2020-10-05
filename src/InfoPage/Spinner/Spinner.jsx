@@ -6,7 +6,7 @@ import mouse from "./16.png"
 export const Spinner = () =>{
 
     return(
-        <div className='spinner-container'>
+        <div className='spinner-container container-border'>
             <img src={spinner}></img>
             <div style={{display:"flex",justifyContent:"space-between",marginTop:"1rem"}}>
                 <div className="name-img">
@@ -22,7 +22,7 @@ export const Spinner = () =>{
                 <div className="tag" style={{color:"white",backgroundColor:"#3dd466"}}>
                     Easy
                 </div>
-                <span>Try This        <span className="fa fa-arrow-right" style={{color:"blue"}}></span></span>
+                <span className="try-this">Try This        <span className="fa fa-arrow-right" style={{color:"blue"}}></span></span>
             </div>
         </div>
     )

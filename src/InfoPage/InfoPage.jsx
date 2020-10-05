@@ -10,13 +10,13 @@ export const InfoPage = (props) =>{
 
     return(
         <div className="info-page" style={{flexDirection:props.reverse?"row-reverse":"row"}}>
-            <div className="explanation-container" style={{width:"50%"}}>
+            <div className="explanation-container" style={{width:props.textWidth}}>
                 <span className="purple-header">{props.header}</span>
                 <span className="explanation-header">{props.explanationHeader}</span>
                 <p className="explanation-description">{props.mainExplanationDescription}</p>
                 <p className="explanation-description">{props.subExplanationDescription}</p>
             </div>
-            <div className="item-holder" style={{width:props.width}}>
+            <div className="item-holder" style={{width:props.modalWidth}}>
                 {
                     getComponentFromProps()
                 }

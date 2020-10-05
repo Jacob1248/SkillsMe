@@ -6,6 +6,7 @@ import { Landing } from './Landing/Landing';
 import { LogoPage } from './LogoPage/LogoPage';
 import { InfoPage } from './InfoPage/InfoPage';
 import { Spinner } from './InfoPage/Spinner/Spinner';
+import { Rating } from './InfoPage/Rating/Rating';
 
 function App() {
   return (
@@ -44,7 +45,20 @@ function App() {
         }
         subExplanationDescription={`Talents Pool Catalog rating is the only rating that will count towards getting recruited by our clients worldwide.`}
         Item={Spinner}
-        width={"30%"}
+        modalWidth={"30%"}
+        textWidth={"50%"}
+        ></InfoPage>
+        <InfoPage
+        header={"Let the world's top 5% coders to endorse your skills."}
+        explanationHeader={"Get your project validated and rated by world's top 5% coders"}
+        mainExplanationDescription=
+        {
+        `On Skillsme, only the world's top 5% coders that are fully verified by Skillsme can be invited to become a Skillsme Judge. Skillsme Judges are the only qualified people to rate your projects. Through this, we ensure that every rating on Skillsme is credible and trusted by various companies and recruiters worldwide.`
+        }
+        Item={Rating}
+        modalWidth={"40%"}
+        textWidth={"40%"}
+        reverse={true}
         ></InfoPage>
       </body>
     </div>
