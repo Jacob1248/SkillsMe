@@ -9,6 +9,8 @@ import { Spinner } from './InfoPage/Spinner/Spinner';
 import { Rating } from './InfoPage/Rating/Rating';
 import { Users } from './InfoPage/Users/Users';
 import { ImageContainer } from './InfoPage/ImageContainer';
+import { Signup } from './SignupPage/Signup.jsx';
+import { Review } from './Reviews/Review';
 
 function App() {
   return (
@@ -91,6 +93,9 @@ function App() {
         textWidth={"45%"}
         reverse={true}
         ></InfoPage>
+
+        <Signup></Signup>
+        <Review></Review>
       </body>
     </div>
   );

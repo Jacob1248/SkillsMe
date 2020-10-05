@@ -1,0 +1,84 @@
+.signup{
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.gradient-bg{
+    background-image: url(./gradientbg.png);
+}
+
+.showcase{
+    margin: auto;
+    margin-top: 30vh;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.showcase-item{
+    display: flex;
+    width: 20vw;
+    flex-direction: column;
+}
+
+.row-reverse{
+    display: flex;
+    flex-direction: row-reverse;
+    padding-top: 5rem;
+    justify-content: space-around;
+    position: relative;
+}
+
+.girl{
+    width: 55vw;
+    height: 80vh;
+    position: absolute;
+    bottom: -15vh;
+    left: 2.5rem;
+    border-radius: 0.8rem;
+    background-image: url(./girl.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.text-signup{
+    position: absolute;
+    right: 3.5rem;
+    width: 30vw;
+}
+
+.gradient-shifter{
+    background:linear-gradient(90deg, rgba(58,123,213,1) 0%, rgba(0,210,255,1) 60%,rgba(58,123,213,1) 90%);
+    /*background: linear-gradient(90deg, rgba(8,8,189,1) 0%,rgba(0,212,255,1) 30%, rgba(0,212,255,1),rgba(8,8,189,1) 95% );*/
+    background-size: 200% 200%;
+    border: transparent;
+	animation: back-gradient 0.5s forwards;
+}
+
+.gradient-shifter:hover{
+	animation: gradient 0.5s forwards;
+}
+
+.gradient-shifter:hover:after{
+    opacity: 0;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+@keyframes back-gradient {
+    0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}

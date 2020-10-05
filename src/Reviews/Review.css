@@ -1,0 +1,64 @@
+.review{
+    width: 100vw;
+    height: fit-content;
+    background-image: url(../SignupPage/gradientbg.png);
+    display: flex;
+    flex-direction: row;
+    padding: 2.5rem;
+}
+
+.main-review{
+    width: 35%;
+}
+
+.review-container{
+    width: 25%;
+    height: fit-content;
+    position: relative;
+    border-radius: 0.8rem;
+    padding: 1rem;
+}
+
+.transparent-bg{
+    width: 100%;
+    border-radius: 0.8rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    opacity: 0.2;
+}
+
+.avatar{
+    position: relative;
+    width: 8rem;
+}
+
+.avatar img:nth-child(1){
+    border-radius: 100%;
+    width: 6rem;
+    height: 6rem;
+    z-index: 2;
+    position: relative;
+    margin-top: 0.8rem;
+}
+.avatar img:nth-child(2){
+    border-radius: 100%;
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.quotes{
+    position: absolute;
+    font-size: 2rem;
+    bottom: -1rem;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    color:#34e5eb;
+}
