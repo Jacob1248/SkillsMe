@@ -11,6 +11,10 @@ export const Review = () =>{
             <span className="main-review" style={{fontSize:"2.2rem",fontWeight:"bold",color:"white"}}>
                 Skillsme makes coders expertise intelligible.
             </span>
+            <div className="bubble-holder">
+                <div className="bubble"></div>
+                <div className="bubble small"></div>
+            </div>
             <div className="review-container" style={{marginLeft:"2%"}}>
                 <div className="transparent-bg">
                 </div><div className="avatar">

@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: row;
     padding: 2.5rem;
+    position: relative;
 }
 
 .main-review{
@@ -61,4 +62,66 @@
     z-index: 2;
     transform: translateX(-50%);
     color:#34e5eb;
+}
+
+.bubble-holder{
+    width: 10rem;
+    height: 10rem;
+    position: absolute;
+    top: 60%;
+    left: 25%;
+}
+
+.bubble{
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    border-radius: 100%;
+    top: 0%;
+    left: 70%;
+    background: linear-gradient(90deg, rgba(58,123,213,1) 0%, rgba(0,210,255,1) 100%);
+    animation: large-bubble 2s infinite ease-in-out;
+}
+
+.small{
+    bottom: 0%;
+    top: initial;
+    position: absolute;
+    right: 50%;
+    left: initial;
+    width: 2rem;
+    height: 2rem;
+    animation: none;
+    animation: small-bubble 10s infinite ease-in-out;
+}
+
+@keyframes large-bubble {
+    0% {
+        width: 6rem;
+        height: 6rem;
+    }
+    50% {
+        width: 5rem;
+        height: 5rem;
+    }
+    100% {
+        width: 6rem;
+        height: 6rem;
+    }
+}
+
+
+@keyframes small-bubble {
+    0% {
+        width: 2rem;
+        height: 2rem;
+    }
+    50% {
+        width: 1rem;
+        height: 1rem;
+    }
+    100% {
+        width: 2rem;
+        height: 2rem;
+    }
 }
