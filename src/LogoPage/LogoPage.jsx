@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./LogoPage.css"
 import airnz from "./logos/air-nz.png"
 import airbnb from "./logos/airbnb.png"
@@ -24,16 +24,46 @@ import vend from "./logos/vend.png"
 import xero from "./logos/xero.png"
 import zendesk from "./logos/zendesk.png"
 import three from "./03.png"
-import one from "./01.png"
+import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
+import ScrollMagic from "scrollmagic";
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 export const LogoPage = () =>{
-    //logos-right
-    //header-bottm
-    //explanation-left
+
+    const [scrollMagic, setScrollMagic] = useState({
+        controller: new ScrollMagic.Controller(),
+        timelineOne: gsap.timeline(),
+    });
+
+    const { controller,timelineOne} = scrollMagic;
+
+    useEffect(
+        
+        ()=>{
+                
+            function f(){
+                timelineOne
+                .fromTo('#logo-page-container', { transform:"translateX(-5%)" , opacity:0 }, { transform:"translateX(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.8 },0)
+                .fromTo('#logo-explanation', { transform:"translateY(-5%)" , opacity:0 }, { transform:"translateY(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.8 },0)
+                .fromTo('.box-holder', { transform:"translateX(5%)" , opacity:0 }, { transform:"translateX(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.8 },0)
+                new ScrollMagic.Scene({
+                  triggerElement: ".logo-page",
+                  triggerHook: "onEnter",
+                  duration: "0%",
+                  offset:"200"
+                })
+                  .setTween(timelineOne)
+                  .setPin("#main-header")
+                  .addTo(controller);
+            }
+            f();
+        }
+    )
 
     return(
         <div className="logo-page">
-            <div className="explanation-container">
+            <div id="logo-explanation" className="explanation-container">
                 <img src={three} style={{position:"absolute",right:"0"}}></img>
                 <span className="purple-header">Find a Job worldwide without a resume.</span>
                 <span className="explanation-header">Get referred to over 10K companies with your ratings</span>
@@ -60,7 +90,7 @@ export const LogoPage = () =>{
                     </div>
                 </div>
             </div>
-            <div className="logo-container">
+            <div id="logo-page-container" className="logo-container">
                 <div className="logo-row">
                     <img src={airbnb}></img>
                     <img src={airnz}></img>

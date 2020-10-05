@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./Landing.css"
 import men from "./men.png";
-import gsap, { TimelineMax, TweenMax, TweenLite,Power1 } from "gsap";
+import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
 import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);

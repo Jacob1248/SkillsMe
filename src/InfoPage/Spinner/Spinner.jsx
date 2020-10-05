@@ -4,7 +4,9 @@ import spinner from "./spinner.jpg";
 import mouse from "./16.png"
 
 export const Spinner = () =>{
-
+//spinner-up
+//heading-down
+//text-right
     return(
         <div className='spinner-container container-border'>
             <img src={spinner}></img>

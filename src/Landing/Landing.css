@@ -8,10 +8,9 @@
     display: flex;
     padding-left: 4rem;
     justify-content: left;
+    overflow-y: hidden;
 }
 
-.landing *{
-}
 
 .button-rated{
     width: 25%;
