@@ -7,6 +7,7 @@ import { LogoPage } from './LogoPage/LogoPage';
 import { InfoPage } from './InfoPage/InfoPage';
 import { Spinner } from './InfoPage/Spinner/Spinner';
 import { Rating } from './InfoPage/Rating/Rating';
+import { Users } from './InfoPage/Users/Users';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         modalWidth={"30%"}
         textWidth={"50%"}
         ></InfoPage>
+
         <InfoPage
         header={"Let the world's top 5% coders to endorse your skills."}
         explanationHeader={"Get your project validated and rated by world's top 5% coders"}
@@ -59,6 +61,18 @@ function App() {
         modalWidth={"40%"}
         textWidth={"40%"}
         reverse={true}
+        ></InfoPage>
+
+        <InfoPage
+        header={"Skillsme will help you engage up to 10K+ companies weekly"}
+        explanationHeader={"Those with respectable Ratings will be referred to companies"}
+        mainExplanationDescription=
+        {
+        `Skillsme users with the best rated project in the current week will be automatically referred to companies who are seeking for tech talents. If your skill set matches any of our clients requirements, your profile will be referred to them directly by Skillsme. There is no need to put any effort on your CV anymore with Skillsme.`
+        }
+        Item={Users}
+        modalWidth={"40%"}
+        textWidth={"45%"}
         ></InfoPage>
       </body>
     </div>
