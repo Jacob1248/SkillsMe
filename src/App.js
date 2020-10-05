@@ -8,6 +8,7 @@ import { InfoPage } from './InfoPage/InfoPage';
 import { Spinner } from './InfoPage/Spinner/Spinner';
 import { Rating } from './InfoPage/Rating/Rating';
 import { Users } from './InfoPage/Users/Users';
+import { ImageContainer } from './InfoPage/ImageContainer';
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       />
       </header>
-      <body >
+      <body className="body">
         <Navbar></Navbar>
         <Landing></Landing>
         <LogoPage></LogoPage>
@@ -73,6 +74,22 @@ function App() {
         Item={Users}
         modalWidth={"40%"}
         textWidth={"45%"}
+        ></InfoPage>
+
+        <InfoPage
+        header={"Much more efficient than traditional CV recruiting"}
+        explanationHeader={"Skillsme Ratings will give you a higher chance of an interview invitation"}
+        mainExplanationDescription=
+        {
+        `Complete our Talent Pool Catalog to have a higher chance of a job interview invitation. With Skillsme, companies are constantly searching for candidates with high ratings or show ability to improve.`
+        }
+        subExplanationDescription={
+          `On Skillsme, you can also accept multiple interviews from companies worldwide and also manage your upcoming interview on Skillsme.`
+        }
+        Item={ImageContainer}
+        modalWidth={"40%"}
+        textWidth={"45%"}
+        reverse={true}
         ></InfoPage>
       </body>
     </div>
