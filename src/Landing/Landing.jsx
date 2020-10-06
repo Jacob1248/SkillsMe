@@ -61,33 +61,7 @@ export const Landing = () =>{
     })
 
     let [pages,setPages] = useState(0);
-
-    const pageInfo = [
-    {
-        text1:"Land a coding",
-        text2:"job with",
-        text3:"Skillsme Rating",
-        text4:"Referral 10k+ companies",
-        text5:"Receive your Skillsme rating by completing real projects and get",
-        text6:"validated by the world’s top 5% coders.",
-        text7:"Get rated now",
-        image:men,
-        bg:skillshome
-    },
-
-    {
-        text1:"Text one",
-        text2:"text two",
-        text3:"text three",
-        text4:"Example text here",
-        text5:"Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
-        text6:"sed do eiusmod tempor incididunt ",
-        text7:"non proident, sunt in culpa qui",
-        image:hero,
-        bg:blackbg
-    }
-    ]
-
+    
     const decrementPage = () =>{
         if(pages-1>=0){
             setPages(pages-1)
