@@ -3,7 +3,7 @@
     bottom: 1rem;
     width: fit-content;
     height: fit-content;
-    background-color: purple;
+    background:linear-gradient(90deg, #7526d7 0%, #f269fd 50%, #7526d7 160%);background-size: 200% 200%;
     color: white;
     left: 50%;
     transform: translateX(-50%);

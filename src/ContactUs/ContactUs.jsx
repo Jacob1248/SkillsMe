@@ -6,7 +6,7 @@ export const ContactUs = () =>{
     const colors = useSelector(state => state.rootReducer.colorPalette)
 
     return(
-        <div className="contact">
+        <div  id="close-button" className="contact">
             <div className="contact-info">
                 <span style={{fontSize:"2rem",fontWeight:"bold",color:colors.large}}>Contact Us</span>
                 <div className="swirl"></div>

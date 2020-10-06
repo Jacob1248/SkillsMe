@@ -110,30 +110,30 @@ export const CommentToolbar = () =>{
             if(openState.addOpen||openState.commentOpen){
                 g
                 .clear()
-                .to('.comment-toolbar',{backgroundColor:"transparent",duration:0})
+                .to('.comment-toolbar',{backgroundColor:"transparent",duration:0},0)
             }
             if(!(openState.addOpen&&openState.commentOpen)){
                 g
                 .clear()
-                .to('.comment-toolbar',{backgroundColor:"purple",duration:0})
+                .to('.comment-toolbar',{backgroundColor:"purple",duration:0},0)
             }
             if(openState.addOpen){
                 g
                 .clear()
-                .to('.add-area',{scale:1,duration:0.5})
+                .to('.add-area',{scale:1,duration:0.5},0)
             }
             else{
                 g
                 .clear()
-                .to('.add-area',{scale:0,duration:0.5})
+                .to('.add-area',{scale:0,duration:0.5},0)
             }
             if(openState.commentOpen){
                 g
-                .to('.edit-area',{scale:1,duration:0.5})
+                .to('.edit-area',{scale:1,duration:0.5},0)
             }
             else{
                 g
-                .to('.edit-area',{scale:0,duration:0.5})
+                .to('.edit-area',{scale:0,duration:0.5},0)
             }
         }
         f();

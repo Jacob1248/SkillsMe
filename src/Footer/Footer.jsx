@@ -87,8 +87,8 @@ export const Footer = () =>{
                 <span>20 Symond St., Auckland CBD, Auckland, New Zealand</span>
                 <a><img src={logo}></img></a>
             </div>
-            <div className="circle-spin"></div>
-            <div className="circle-spin small-circle"></div>
+            <div id="close-button" className="circle-spin"></div>
+            <div id="close-button" className="circle-spin small-circle"></div>
         </div>
     )
 }
