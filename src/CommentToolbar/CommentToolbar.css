@@ -7,8 +7,61 @@
     color: white;
     left: 50%;
     transform: translateX(-50%);
-    text-align: center;
     justify-content: space-around;
     padding: 1rem;
     border-radius: 0.5rem;
+    display: flex;
+    z-index: 5000;
+}
+
+.add-area{
+    width: 50vw;
+    bottom: 0;
+    position: fixed;
+    background-color: white;
+    border-radius: 0.8rem;
+    color: black;
+    margin:auto auto;
+    border: thin black solid;
+    padding: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: calc(85vh - 2rem);
+    border: thick purple dashed;
+    background-color: #F6FCFF;
+    z-index: 5000;
+    overflow: auto;
+}
+.edit-area{
+    width: 50vw;
+    bottom: 0;
+    position: fixed;
+    background-color: white;
+    border-radius: 0.8rem;
+    color: black;
+    margin:auto auto;
+    border: thin black solid;
+    padding: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: fit-content;
+    bottom: 35vh;
+    display:flex;
+    flex-direction: column;
+    border: thick purple dashed;
+    background-color: #F6FCFF;
+    z-index: 5000;
+    overflow: auto;
+}
+
+.edit-area textarea{
+    resize:none;
+    width: 30rem;
+    height: 5rem;
+}
+
+.name-cross{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

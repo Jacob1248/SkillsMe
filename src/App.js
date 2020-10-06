@@ -70,7 +70,7 @@ function App() {
                 }
           }
           f();
-      }
+      },[]
   )
 
   const openCommentWindow = () =>{
@@ -78,7 +78,7 @@ function App() {
       highlightedElement.current.style.border = "none"
       if(clickedElement){
         let c= clickedElement
-        c.current.style.border = "none"
+        c.style.border = "none"
         setClickedElement(null)
       }
     openComment(!comment)
@@ -89,7 +89,7 @@ function App() {
       highlightedElement.current.style.border = "none"
     if(clickedElement){
       let c= clickedElement
-      c.current.style.border = "none"
+      c.style.border = "none"
       setClickedElement(null)
     }
     openComment(false)
@@ -113,10 +113,6 @@ function App() {
     }
   }
 
-  const openCommentEditor = () =>{
-
-  }
-
   const clickElement = (e) =>{
     if(e.target.id==="close-button")
       return;
@@ -126,7 +122,6 @@ function App() {
         c.style.border = "none"
       e.target.style.border = "thick red solid"
       setClickedElement(e.target);
-      openCommentEditor();
     }
     else{
       if(clickedElement)
@@ -161,7 +156,7 @@ function App() {
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       />
       </header>
-      <body ref={ref=>triggerRef=ref} onMouseMove={(e)=>comment?highlightElement(e):""} onClick={(e)=>comment?clickElement(e):""} className="body" >
+      <body ref={ref=>triggerRef=ref} className="body" >
         <Navbar resetAll={resetAll} commentMode={comment}></Navbar>
         <Landing></Landing>
         <LogoPage></LogoPage>
@@ -225,8 +220,8 @@ function App() {
         <FAQ></FAQ>
         <ContactUs></ContactUs>
         <Footer></Footer>
-        <ToolBar openCommentWindow={openCommentWindow}></ToolBar>
-        <CommentToolbar clicked={clickedElement!=null}></CommentToolbar>
+        <ToolBar></ToolBar>
+        <CommentToolbar element={clickedElement} clicked={clickedElement!=null}></CommentToolbar>
       </body>
     </div>
   );
