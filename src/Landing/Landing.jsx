@@ -14,6 +14,8 @@ ScrollMagicPluginGsap(ScrollMagic, gsap);
 export const Landing = () =>{
     const colors = useSelector(state => state.rootReducer.colorPalette)
 
+    let g = gsap.timeline();
+
     const [scrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
         timelineOne: gsap.timeline()
@@ -24,7 +26,18 @@ export const Landing = () =>{
 
     let c = useRef(null);
 
+    let page1Ref,page2Ref = null;
+
     useEffect(() => {
+        if(pages===0){
+            g
+            .to(page2Ref,{left:"100vw",duration:0.7})
+        }
+        else{
+            g
+            .to(page2Ref,{left:"0vw",duration:0.7})
+
+        }
         if(c.current!==null){
             c.current.destroy(true);
             c.current = null;
@@ -94,19 +107,35 @@ export const Landing = () =>{
     }
 
     return(
-        <div className="landing" style={{backgroundImage:`url(./${pageInfo[pages].bg})`,backgroundSize:"cover"}}>
+        <div className="landing" style={{backgroundSize:"cover"}}>
+            <div ref={ref=>page1Ref=ref} style={{backgroundImage:`url(./${skillshome})`,backgroundSize:"cover"}} id="slider-1" className="slider-info">
             <div className="info-area">
-                <span className="main-header" style={{color:colors.boldLarge}}>{pageInfo[pages].text1}</span>
-                <span className="main-header" style={{color:colors.boldLarge}}>{pageInfo[pages].text2}</span>
-                <span className="main-header" style={{color:colors.boldLarge}}>{pageInfo[pages].text3}</span>
-                <span style={{fontSize:"2rem",marginBottom:"1rem",color:colors.boldLarge}}>{pageInfo[pages].text4}</span>
-                <span className="sub-text" style={{color:colors.boldLarge}}>{pageInfo[pages].text5}</span>
-                <span className="sub-text" style={{marginBottom:"1rem",color:colors.boldLarge}}>{pageInfo[pages].text6}</span>
-                <button className="button-rated"><span>{pageInfo[pages].text7}</span></button>
-            </div>
-            <img className="hero-image" src={pageInfo[pages].image}></img>
-            <div className="fa arrow-left fa-angle-left fa-left fa-2x" onClick={()=>decrementPage()} style={{color:"white"}}></div>
+                <span className="main-header" style={{color:colors.boldLarge}}>Land a coding</span>
+                <span className="main-header" style={{color:colors.boldLarge}}>job with</span>
+                <span className="main-header" style={{color:colors.boldLarge}}>Skillsme Rating</span>
+                <span className="secondary-header" style={{fontSize:"2rem",marginBottom:"1rem",color:colors.boldLarge}}>Referral 10k+ companies</span>
+                <span className="sub-text" style={{color:colors.boldLarge}}>Receive your Skillsme rating by completing real projects and get</span>
+                <span className="sub-text" style={{marginBottom:"1rem",color:colors.boldLarge}}>validated by the world’s top 5% coders.</span>
+                <button className="button-rated"><span>Get rated now</span></button>
             <div className="fa arrow-right fa-angle-right fa-left fa-2x" onClick={()=>incrementPage()} style={{color:"white"}}></div>
+            </div>
+            <img className="hero-image" src={men}></img>
+            </div>
+            <div ref={ref=>page2Ref=ref} style={{backgroundImage:`url(./${blackbg})`,backgroundSize:"cover",zIndex:900,position:"absolute",left:"100vw"}} id="slider-2" className="slider-info">
+            <div className="info-area">
+                <span className="main-header" style={{color:colors.boldLarge}}>Text one</span>
+                <span className="main-header" style={{color:colors.boldLarge}}>text two</span>
+                <span className="main-header" style={{color:colors.boldLarge}}>text three</span>
+                <span className="secondary-header" style={{fontSize:"2rem",marginBottom:"1rem",color:colors.boldLarge}}>Example text here</span>
+                <span className="sub-text" style={{color:colors.boldLarge}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</span>
+                <span className="sub-text" style={{marginBottom:"1rem",color:colors.boldLarge}}>sed do eiusmod tempor incididunt </span>
+                <button className="button-rated"><span>non proident qui</span></button>
+            </div>
+            <img className="hero-image" src={hero}></img>
+            </div>
+
+                
+        
         </div>
     )
 }

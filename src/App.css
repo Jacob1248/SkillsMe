@@ -1,18 +1,5 @@
 
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 button{
   color: white;
   font-family: 'Montserrat', sans-serif;
@@ -50,7 +37,7 @@ button:hover:after{
 }
 
 .body{
-  overflow-x: hidden;
+  overflow-x: auto;
   width: 100vw;
 }
 

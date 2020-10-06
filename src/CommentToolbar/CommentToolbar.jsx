@@ -168,7 +168,7 @@ export const CommentToolbar = () =>{
                 </div>
                 {
                     element?comments[element.id]?comments[element.id].map((value,index)=>
-                        <div id="close-button" style={{display:"flex",flexDirection:"column",borderBottom:"thin purple solid",paddingBottom:"3rem"}}>
+                        <div key={index} id="close-button" style={{display:"flex",flexDirection:"column",borderBottom:"thin purple solid",paddingBottom:"3rem"}}>
                             <h1 id="close-button">Name :</h1>
                             <span id="close-button">{value.name}</span>
                             <h1 id="close-button">Comment :</h1>

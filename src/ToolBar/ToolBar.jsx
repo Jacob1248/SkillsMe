@@ -17,7 +17,7 @@ export const ToolBar = () =>{
 
     let setOpen = () =>{
       let c = !open;
-      if(c==false){
+      if(c===false){
         resetAll()
         setopen(false)
       }
@@ -71,7 +71,7 @@ export const ToolBar = () =>{
         if(e.target.id==="close-button")
           return;
         if(clickedElement===null){
-          if(e.target!=highlightedElement.current){
+          if(e.target!==highlightedElement.current){
             if(highlightedElement.current)
               highlightedElement.current.style.border = "none"
             highlightedElement.current = e.target;
@@ -84,7 +84,7 @@ export const ToolBar = () =>{
     const clickElement = (e) =>{
         if(e.target.id==="close-button")
           return;
-        if(e.target!=clickedElement){
+        if(e.target!==clickedElement){
           let c = clickedElement
           if(clickedElement)
             c.style.border = "none"
@@ -92,7 +92,6 @@ export const ToolBar = () =>{
           if(!e.target.id)
             e.target.id = ID();
           dispatch(setClick(e.target))
-          console.log("here")
         }
         else{
           if(clickedElement)
