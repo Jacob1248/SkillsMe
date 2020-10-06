@@ -4,11 +4,13 @@ import "./actions";
 
 let rootState ={
     clickedElement:null,
-    storedData:{
-
-    },
     commentsOpen:false,
-    colorOpen:false
+    colorOpen:false,
+    colorPalette:{
+        mini:'purple',
+        large:'black',
+        description:'gray'
+    }
 }
  
 
@@ -18,23 +20,6 @@ const rootReducer = (state = rootState,action) => {
             let c = {
                 ...state,
                 clickedElement:action.payload,
-            }
-            return c;
-        }
-        case "SET_COMMENT":{
-            let storedData = {
-                ...state.storedData
-            }
-            storedData[action.payload.id] = [...storedData[action.payload.id],
-                                                {
-                                                    id:'_' + Math.random().toString(36).substr(2, 9),
-                                                    name:action.payload.name,
-                                                    comment:action.payload.comment
-                                                }
-                                            ]
-            let c = {
-                ...state,
-                storedData:storedData
             }
             return c;
         }
@@ -51,27 +36,30 @@ const rootReducer = (state = rootState,action) => {
             let newState = {
                 ...state,
                 colorOpen:!state.colorOpen,
-                commentsOpen:false
+                commentsOpen:false,
+                clickedElement:null
             }
             return newState
         }
-        case "DELETE_COMMENT":{
-            let storedData = {
-                ...state.storedData
-            }
-            for(var i = 0; i < storedData[action.payload.id].length; i++)
-            {
-              if(storedData[action.payload.id][i].id === action.payload.value)
-              {
-                 storedData[action.payload.id].splice(i, 1);
-                 return;
-              }
-            }
-            let c = {
+        case "CLOSE_BOTH":{
+            let newState = {
                 ...state,
-                storedData:storedData
+                colorOpen:false,
+                commentsOpen:false,
+                clickedElement:null
             }
-            return c;
+            return newState
+        }
+        case "CHANGE_COLOR":{
+            let newState = {
+                ...state,
+                colorPalette:{
+                    mini:action.payload.mini?action.payload.mini:state.mini,
+                    large:action.payload.large?action.payload.large:state.large,
+                    description:action.payload.description?action.payload.description:state.description
+                }
+            }
+            return newState;
         }
         default:
             return state;

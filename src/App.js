@@ -223,7 +223,7 @@ function App() {
         <Footer></Footer>
         <ToolBar></ToolBar>
         <ColorChanger ></ColorChanger>
-            <CommentToolbar ></CommentToolbar>
+        <CommentToolbar ></CommentToolbar>
       </body>
     </div>
   );

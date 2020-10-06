@@ -18,4 +18,12 @@ export const toggleColor = (payload) =>{
     return {type:"TOGGLE_COLOR"}
 }
 
+export const closeBoth = () =>{
+    return {type:"CLOSE_BOTH"}
+}
+
+export const changeColor = (payload) =>{
+    return {type:"CHANGE_COLOR",payload}
+}
+
 

@@ -1,7 +1,19 @@
 .color-changer{
-    width:100vw;
-    height: 10vw;
-    background-color: red;
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 10vh;
+    height: 60vh;
+    width: 50vw;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0rem;
+    margin-left: 0rem;
+    z-index: 5000;
+    padding: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    overflow-y: auto;
 }

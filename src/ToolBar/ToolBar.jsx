@@ -3,7 +3,7 @@ import "./ToolBar.css";
 import gsap from "gsap"
 import { CommentToolbar } from '../CommentToolbar/CommentToolbar';
 import { ColorChanger } from '../ColorChanger/ColorChanger';
-import { setClick,toggleComments,toggleColor } from '../redux/actions';
+import { setClick,toggleComments,toggleColor,closeBoth } from '../redux/actions';
 import {useDispatch} from 'react-redux'
 import {useSelector} from 'react-redux'
 
@@ -73,11 +73,9 @@ export const ToolBar = (props) =>{
         if(clickedElement){
           let c= clickedElement
           c.style.border = "none"
-          dispatch(setClick(null))
           //setClickedElement(null)
         }
-        dispatch(toggleComments());
-        dispatch(toggleColor());
+        dispatch(closeBoth())
         //openComment(false)
         //openColor(false)
     }
@@ -141,18 +139,26 @@ export const ToolBar = (props) =>{
             f();
         }
     )
-    
-    const openWindow = () =>{
-        openCommentWindow();
+
+    const openColorWindow = () =>{
+      if(highlightedElement.current)
+        highlightedElement.current.style.border = "none"
+      if(clickedElement){
+        let c= clickedElement
+        c.style.border = "none"
+          //setClickedElement(null)
+      }
+      dispatch(toggleColor());
     }
 
     return(
         <div id="close-button" className="toolbar">
             <div id="close-button" className="menu-options">
-                <span id="close-button" className="fa fa-tint fa-lg" style={{cursor:"pointer"}}></span>
-                <span id="close-button" onClick={()=>openWindow()} style={{marginTop:"2rem",cursor:"pointer"}} className="fa fa-comment fa-lg"></span>
+                <span id="close-button" onClick={()=>openColorWindow()} className="fa fa-tint fa-lg" style={{cursor:"pointer"}}></span>
+                <span id="close-button" onClick={()=>openCommentWindow()} style={{marginTop:"2rem",cursor:"pointer"}} className="fa fa-comment fa-lg"></span>
             </div>
             <div id="close-button" onClick={()=>setOpen()} className="tooltip"><span id="close-button" className="fa fa-bars fa-lg"></span></div>
+            
         </div>  
     )
 }
