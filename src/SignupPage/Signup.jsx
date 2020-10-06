@@ -3,9 +3,12 @@ import "./Signup.css";
 import gsap, {Power1 } from "gsap";
 import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+import { useSelector } from 'react-redux';
 ScrollMagicPluginGsap(ScrollMagic, gsap);
 
 export const Signup = () =>{
+
+    const colors = useSelector(state => state.rootReducer.colorPalette)
 
     const [scrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
@@ -39,7 +42,7 @@ export const Signup = () =>{
         <div ref={ref=>pageRef=ref} className="signup">
             <div className="gradient-bg row-reverse">
                 <div ref={ref=>textRef=ref} className="text-signup">
-                    <span style={{fontSize:"2.5rem",fontWeight:"bold",color:"white"}}>We let coders land their dream jobs without a resume</span>
+                    <span style={{fontSize:"2.5rem",fontWeight:"bold",color:colors.boldLarge}}>We let coders land their dream jobs without a resume</span>
                     <button className="gradient-shifter" style={{marginTop:"2rem",fontSize:"1rem",padding:"1.2rem"}}>Sign Up Now</button>
                 </div>
                 <div className="girl">
