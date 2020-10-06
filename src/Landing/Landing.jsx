@@ -117,7 +117,8 @@ export const Landing = () =>{
                 <span className="sub-text" style={{color:colors.boldLarge}}>Receive your Skillsme rating by completing real projects and get</span>
                 <span className="sub-text" style={{marginBottom:"1rem",color:colors.boldLarge}}>validated by the world’s top 5% coders.</span>
                 <button className="button-rated"><span>Get rated now</span></button>
-            <div className="fa arrow-right fa-angle-right fa-left fa-2x" onClick={()=>incrementPage()} style={{color:"white"}}></div>
+
+                    <div className="fa arrow-right fa-angle-right fa-left fa-2x" onClick={()=>incrementPage()} style={{color:"white"}}></div>
             </div>
             <img className="hero-image" src={men}></img>
             </div>
@@ -130,10 +131,11 @@ export const Landing = () =>{
                 <span className="sub-text" style={{color:colors.boldLarge}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</span>
                 <span className="sub-text" style={{marginBottom:"1rem",color:colors.boldLarge}}>sed do eiusmod tempor incididunt </span>
                 <button className="button-rated"><span>non proident qui</span></button>
+
+                    <div className="fa arrow-left fa-angle-left fa-left fa-2x" onClick={()=>decrementPage()} style={{color:"white"}}></div>
             </div>
             <img className="hero-image" src={hero}></img>
             </div>
-
                 
         
         </div>

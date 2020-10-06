@@ -37,7 +37,7 @@ button:hover:after{
 }
 
 .body{
-  overflow-x: auto;
+  overflow-x: hidden;
   width: 100vw;
 }
 
