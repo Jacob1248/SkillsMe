@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import "./CommentToolbar.css";
+import {useSelector} from 'react-redux'
 import gsap from "gsap";
 
 export const CommentToolbar = (props) =>{
 
+    const element = useSelector(state => state.rootReducer.clickedElement)
+
+    const clicked = useSelector(state => state.rootReducer.commentsOpen)
+
     let g = gsap.timeline();
 
     const editAllComments = () =>{
-        setOpenState({
-            addOpen:false,
-            commentOpen:!openState.commentOpen
-        })
+        if(element){
+            setOpenState({
+                addOpen:false,
+                commentOpen:!openState.commentOpen
+            })
+        }
+        else{
+            alert('Select an element first!')
+        }
     }
 
     let nameRef,commentRef = null;
@@ -24,12 +34,12 @@ export const CommentToolbar = (props) =>{
     let [comments,setComments] = useState({})
 
     const deleteComment = (value) =>{
-        //delete comments[props.element.id]
-        for(var i = 0; i < comments[props.element.id].length; i++)
+        //delete comments[element.id]
+        for(var i = 0; i < comments[element.id].length; i++)
         {
-          if(comments[props.element.id][i].id === value)
+          if(comments[element.id][i].id === value)
           {
-             comments[props.element.id].splice(i, 1);
+             comments[element.id].splice(i, 1);
              setForce(!force);
              return;
           }
@@ -37,10 +47,15 @@ export const CommentToolbar = (props) =>{
     }
 
     const addComment = () =>{
-        setOpenState({
-            addOpen:!openState.addOpen,
-            commentOpen:false
-        })
+        if(element){
+            setOpenState({
+                addOpen:!openState.addOpen,
+                commentOpen:false
+            })
+        }
+        else{
+            alert('Select an element first!')
+        }
     }
 
     const findLargest = (arr) =>{
@@ -63,12 +78,12 @@ export const CommentToolbar = (props) =>{
     const finalizeComment = () =>{
         if(nameRef.value.trim()!=''||nameRef.value!=undefined){
             if(commentRef.value.trim()!=''||commentRef.value!=undefined){
-                if(props.element.id!='close-button'){
+                if(element.id!='close-button'){
                     let commentsTemp = {
                         ...comments
                     };
-                    if(commentsTemp[props.element.id]){
-                        commentsTemp[props.element.id].push({
+                    if(commentsTemp[element.id]){
+                        commentsTemp[element.id].push({
                             id:ID(),
                             name:nameRef.value,
                             comment:commentRef.value
@@ -76,7 +91,7 @@ export const CommentToolbar = (props) =>{
                         //alert('A comment is already left on this item! You should delete that first in order to leave a new comment!')
                     }
                     else{
-                        commentsTemp[props.element.id] = [{
+                        commentsTemp[element.id] = [{
                             id:0,
                             name:nameRef.value,
                             comment:commentRef.value
@@ -102,7 +117,6 @@ export const CommentToolbar = (props) =>{
       
     ()=>{
         async function f(){
-            console.log(comments)
             if(openState.addOpen||openState.commentOpen){
                 g
                 .clear()
@@ -138,29 +152,34 @@ export const CommentToolbar = (props) =>{
     }
   )
     return(
-        <div id="close-button" className="comment-toolbar" style={{display:props.clicked?"flex":"none"}}>
-            {
-                
-            }
-            <span id="close-button" onClick={()=>editAllComments()} style={{cursor:"pointer",display:openState.addOpen?"none":"initial"}}>
-                View
-            </span>
-            <span id="close-button" style={{marginLeft:"2rem",display:openState.addOpen?"none":"initial"}}>
-                |
-            </span>
-            <span id="close-button" onClick={()=>addComment()} style={{marginLeft:"2rem",cursor:"pointer",display:openState.addOpen?"none":"initial"}}>
-                Edit
-            </span>
-            <div className="view-area">
+        <div id="close-button" className="comment-toolbar" style={{display:clicked?"flex":"none"}}>
+            <div id="close-button" style={{display:"flex",flexDirection:"column",display:openState.addOpen?"none":"initial"}}>
+                <div id="close-button" style={{display:"flex",justifyContent:"space-between"}}>
+                    <span id="close-button">Type :{element?element.tagName.toLowerCase():""}</span>
+                    <span style={{marginLeft:"2rem"}} id="close-button">ID :{element?element.id:""}</span>
+                    
+                </div>    
+                <div id="close-button" style={{display:"flex",justifyContent:"space-between",textDecoration:"underline"}}>
+                <span id="close-button" onClick={()=>editAllComments()} style={{cursor:"pointer"}}>
+                    Add
+                </span>
+                <span id="close-button" style={{marginLeft:"2rem"}}>
+                    |
+                </span>
+                <span id="close-button" onClick={()=>addComment()} style={{marginLeft:"2rem",cursor:"pointer"}}>
+                    View
+                </span>
+
+                </div>
 
             </div>
             <div id="close-button" style={{display:!openState.addOpen?"none":"initial"}} className="contact add-area">
-                <div className="name-cross">
-                    <span style={{margin:"auto 0"}}>All Comments</span>
+                <div id="close-button" className="name-cross">
+                    <span style={{margin:"auto 0",fontSize:"1.5rem",fontWeight:"bold"}} id="close-button">All Comments</span>
                     <button id="close-button" onClick={()=>addComment()} className="close-button" style={{color:"black"}}>x</button>
                 </div>
                 {
-                    props.element?comments[props.element.id]?comments[props.element.id].map((value,index)=>
+                    element?comments[element.id]?comments[element.id].map((value,index)=>
                         <div id="close-button" style={{display:"flex",flexDirection:"column",borderBottom:"thin purple solid",paddingBottom:"3rem"}}>
                             <h1 id="close-button">Name :</h1>
                             <span id="close-button">{value.name}</span>
@@ -168,19 +187,22 @@ export const CommentToolbar = (props) =>{
                             <span id="close-button">{value.comment}</span>
                             <button id="close-button" className="gradient-shifter purple-gradient-shifter " style={{marginTop:"1rem",width:"20%"}} onClick={()=>deleteComment(value.id)}>Delete</button>
                         </div>
-                    ):"":""
+                    ):"No comments to display!":"No comments to display!"
                 }
             </div>
 
-            <div id="close-button" style={{display:!openState.commentOpen?"none":"initial"}} className="contact edit-area">
+            <div id="close-button" style={{display:!openState.commentOpen?"none":"initial"}} className="contact contact-form edit-area">
                 <div id="close-button" className="name-cross">
-                    <span id="close-button" style={{margin:"auto 0"}}>Add a comment</span>
+                    <span id="close-button" style={{margin:"auto 0",fontSize:"1.5rem",fontWeight:"bold"}}>Add a comment</span>
                     <button id="close-button" onClick={()=>addComment()} className="close-button" style={{color:"black"}}>x</button>
                 </div>
-                <input id="close-button" ref={ref=>nameRef=ref} type="text" placeholder="Enter Name" style={{marginBottom:"3rem"}}></input>
+                <input id="close-button" ref={ref=>nameRef=ref} type="text" placeholder="Enter Name" style={{marginBottom:"3rem",marginLeft:"0"}}></input>
                 <br/>
-                <textarea id="close-button" ref={ref=>commentRef=ref} type="text" placeholder="Enter Comment" ></textarea>
-                <button id="close-button" onClick={()=>finalizeComment()} className="gradient-shifter purple-gradient-shifter" style={{fontSize:"1.1rem",padding:"0.5rem",marginTop:"1rem"}}>Add</button>
+                <textarea id="close-button" ref={ref=>commentRef=ref} style={{marginLeft:"0"}} type="text" placeholder="Enter Comment" ></textarea>
+                <button id="close-button" onClick={()=>finalizeComment()} className="gradient-shifter purple-gradient-shifter" style={{fontSize:"1.1rem",padding:"0.5rem",marginTop:"1rem",marginLeft:"0"}}>Add</button>
+            </div>
+            <div className="blur-bg" style={{display:openState.commentOpen||openState.addOpen?"initial":"none"}}>
+
             </div>
         </div>
     )

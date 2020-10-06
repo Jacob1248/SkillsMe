@@ -6,7 +6,9 @@ let rootState ={
     clickedElement:null,
     storedData:{
 
-    }
+    },
+    commentsOpen:false,
+    colorOpen:false
 }
  
 
@@ -15,7 +17,7 @@ const rootReducer = (state = rootState,action) => {
         case "SET_CLICK":{
             let c = {
                 ...state,
-                clickedElement:action.payload.clickedElement,
+                clickedElement:action.payload,
             }
             return c;
         }
@@ -23,19 +25,48 @@ const rootReducer = (state = rootState,action) => {
             let storedData = {
                 ...state.storedData
             }
-            storedData[action.payload.element] = [...storedData[action.payload.element],
-                                                    action.payload.newData]
+            storedData[action.payload.id] = [...storedData[action.payload.id],
+                                                {
+                                                    id:'_' + Math.random().toString(36).substr(2, 9),
+                                                    name:action.payload.name,
+                                                    comment:action.payload.comment
+                                                }
+                                            ]
             let c = {
                 ...state,
                 storedData:storedData
             }
             return c;
         }
+        case "TOGGLE_COMMENTS":{
+            let newState = {
+                ...state,
+                commentsOpen:!state.commentsOpen,
+                colorOpen:false,
+                clickedElement:null
+            }
+            return newState
+        }
+        case "TOGGLE_COLOR":{
+            let newState = {
+                ...state,
+                colorOpen:!state.colorOpen,
+                commentsOpen:false
+            }
+            return newState
+        }
         case "DELETE_COMMENT":{
             let storedData = {
                 ...state.storedData
             }
-            storedData[action.payload.element].splice(action.payload.index, 1);
+            for(var i = 0; i < storedData[action.payload.id].length; i++)
+            {
+              if(storedData[action.payload.id][i].id === action.payload.value)
+              {
+                 storedData[action.payload.id].splice(i, 1);
+                 return;
+              }
+            }
             let c = {
                 ...state,
                 storedData:storedData

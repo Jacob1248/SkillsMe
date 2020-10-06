@@ -30,12 +30,6 @@ export const Navbar = (props) =>{
 
     return(
         <nav className="nav">
-            {
-                props.commentMode?
-                <ul>
-                    <a href="#" title="Logo"><span style={{fontSize:"2rem"}}>In comment mode</span></a>
-                </ul>
-                :
                 <ul>
                     <a href="index.html" title="Logo"><img src={logo} alt="images" /></a>
                     <ul>
@@ -46,20 +40,10 @@ export const Navbar = (props) =>{
                     </ul>
     
                 </ul>
-            }
-            {
-                props.commentMode?
-                <ul>
-                    <li><button id="close-button" onClick={()=>gotoViewMode()} className="close-button">x</button></li>
-                </ul>
-                :
-
             <ul>
                 <li><button className="button-login" id="close-button" style={{content:"Log In"}}><span>Log In</span></button></li>
                 <li><button className="button-signup" style={{content:"Log In"}}><span>Sign Up</span></button></li>
             </ul>
-
-            }
         </nav>
     )
 }

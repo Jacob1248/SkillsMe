@@ -1,0 +1,7 @@
+.color-changer{
+    width:100vw;
+    height: 10vw;
+    background-color: red;
+    position: fixed;
+    top: 0;
+}

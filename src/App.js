@@ -19,6 +19,7 @@ import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 import { ToolBar } from './ToolBar/ToolBar';
 import { CommentToolbar } from './CommentToolbar/CommentToolbar';
+import { ColorChanger } from './ColorChanger/ColorChanger';
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 function App() {
@@ -221,7 +222,8 @@ function App() {
         <ContactUs></ContactUs>
         <Footer></Footer>
         <ToolBar></ToolBar>
-        <CommentToolbar element={clickedElement} clicked={clickedElement!=null}></CommentToolbar>
+        <ColorChanger ></ColorChanger>
+            <CommentToolbar ></CommentToolbar>
       </body>
     </div>
   );
