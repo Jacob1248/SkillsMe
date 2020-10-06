@@ -9,7 +9,11 @@ let rootState ={
     colorPalette:{
         mini:'purple',
         large:'black',
-        description:'gray'
+        description:'gray',
+        boldLarge:'white',
+        footer:"white",
+        nav:"white",
+        navbg:"#6610f2"
     }
 }
  
@@ -56,7 +60,11 @@ const rootReducer = (state = rootState,action) => {
                 colorPalette:{
                     mini:action.payload.mini?action.payload.mini:state.mini,
                     large:action.payload.large?action.payload.large:state.large,
-                    description:action.payload.description?action.payload.description:state.description
+                    description:action.payload.description?action.payload.description:state.description,
+                    boldLarge:action.payload.boldLarge?action.payload.boldLarge:state.boldLarge,
+                    footer:action.payload.footer?action.payload.footer:state.footer,
+                    nav:action.payload.nav?action.payload.nav:state.nav,
+                    navbg:action.payload.navbg?action.payload.navbg:state.navbg
                 }
             }
             return newState;

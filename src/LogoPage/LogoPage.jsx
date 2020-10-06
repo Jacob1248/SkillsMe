@@ -27,9 +27,12 @@ import three from "./03.png"
 import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
 import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+import { useSelector } from 'react-redux'
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 export const LogoPage = () =>{
+
+    const colors = useSelector(state => state.rootReducer.colorPalette)
 
     const [scrollMagic, setScrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
@@ -65,11 +68,11 @@ export const LogoPage = () =>{
         <div className="logo-page">
             <div id="logo-explanation" className="explanation-container">
                 <img src={three} style={{position:"absolute",right:"0"}}></img>
-                <span className="purple-header">Find a Job worldwide without a resume.</span>
-                <span className="explanation-header">Get referred to over 10K companies with your ratings</span>
+                <span className="purple-header" style={{color:colors.mini}}>Find a Job worldwide without a resume.</span>
+                <span className="explanation-header" style={{color:colors.large}}>Get referred to over 10K companies with your ratings</span>
                 <div className="swirl">
                 </div>
-                <span className="explanation-description">With Skillsme, your projects has the potential to reach over 10,000 companies worldwide that is interested in recruiting tech talents like you. Validate your projects with ratings only on Skillsme.</span>
+                <span className="explanation-description" style={{color:colors.description}}>With Skillsme, your projects has the potential to reach over 10,000 companies worldwide that is interested in recruiting tech talents like you. Validate your projects with ratings only on Skillsme.</span>
                 <div className="box-holder">
                     <div className="color-change-container">
                         <span className="fa fa-support" style={{fontSize:"4rem",marginBottom:"1rem",color:"blue"}}></span>

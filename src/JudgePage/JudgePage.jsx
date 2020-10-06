@@ -4,9 +4,12 @@ import {Judge} from "./Judge"
 import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
 import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+import { useSelector } from 'react-redux';
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 export const JudgePage = () =>{
+
+    const colors = useSelector(state => state.rootReducer.colorPalette)
 
     const [scrollMagic, setScrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
@@ -41,8 +44,8 @@ export const JudgePage = () =>{
         <div ref={ref=>pageRef=ref} className="judge-page">
             <div className="explanation-container" style={{width:"100%"}}>
                 <div ref={ref=>textRef=ref}>
-                <span className="purple-header">60+ users with our judge badge</span><br/>
-                <span className="explanation-header">Meet our judge users</span><br/>
+                <span className="purple-header" style={{color:colors.mini}}>60+ users with our judge badge</span><br/>
+                <span className="explanation-header" style={{color:colors.large}}>Meet our judge users</span><br/>
                 <div className="swirl">
                 </div>
                 </div><div className="logo-container">

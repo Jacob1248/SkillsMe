@@ -4,10 +4,13 @@ import men from "./men.png";
 import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
 import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+import { useSelector } from 'react-redux';
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 
 export const Landing = () =>{
+    const colors = useSelector(state => state.rootReducer.colorPalette)
+
     const [scrollMagic, setScrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
         timelineOne: gsap.timeline()
@@ -42,12 +45,12 @@ export const Landing = () =>{
     return(
         <div className="landing">
             <div className="info-area">
-                <span className="main-header">Land a coding</span>
-                <span className="main-header">job with </span>
-                <span className="main-header">Skillsme Rating</span>
-                <span className="secondary-header" style={{fontSize:"2rem",marginBottom:"1rem"}}>Referral 10k+ companies</span>
-                <span className="sub-text">Receive your Skillsme rating by completing real projects and get </span>
-                <span className="sub-text" style={{marginBottom:"1rem"}}>validated by the world’s top 5% coders.</span>
+                <span className="main-header" style={{color:colors.boldLarge}}>Land a coding</span>
+                <span className="main-header" style={{color:colors.boldLarge}}>job with </span>
+                <span className="main-header" style={{color:colors.boldLarge}}>Skillsme Rating</span>
+                <span style={{fontSize:"2rem",marginBottom:"1rem",color:colors.boldLarge}}>Referral 10k+ companies</span>
+                <span className="sub-text" style={{color:colors.boldLarge}}>Receive your Skillsme rating by completing real projects and get </span>
+                <span className="sub-text" style={{marginBottom:"1rem",color:colors.boldLarge}}>validated by the world’s top 5% coders.</span>
                 <button className="button-rated"><span>Get rated now</span></button>
             </div>
             <img className="hero-image" src={men}></img>

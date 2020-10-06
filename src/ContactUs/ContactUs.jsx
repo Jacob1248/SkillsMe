@@ -1,12 +1,14 @@
 import React from 'react';
 import "./ContactUs.css";
+import { useSelector } from 'react-redux';
 
 export const ContactUs = () =>{
+    const colors = useSelector(state => state.rootReducer.colorPalette)
 
     return(
         <div className="contact">
             <div className="contact-info">
-                <span style={{fontSize:"2rem",fontWeight:"bold"}}>Contact Us</span>
+                <span style={{fontSize:"2rem",fontWeight:"bold",color:colors.large}}>Contact Us</span>
                 <div className="swirl"></div>
                 <div className="contact-item">
                     <span className="fa fa-phone contact-glyph"></span>

@@ -91,7 +91,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    color: lightgray;
     flex-wrap: wrap;
     padding-top: 1rem;
     padding-bottom: 1rem;

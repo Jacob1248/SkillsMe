@@ -4,9 +4,12 @@ import woman from "./woman.png"
 import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
 import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+import { useSelector } from 'react-redux';
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 export const FAQ = () =>{
+
+    const colors = useSelector(state => state.rootReducer.colorPalette)
     
     let g = gsap.timeline();
     let [open,setOpen] = useState(null);
@@ -81,33 +84,33 @@ export const FAQ = () =>{
         <div ref={ref=>pageRef=ref} className="faq">
             <img ref={ref=>imageRef=ref} src={woman} style={{width:"40%",height:"50%"}}></img>
             <div ref={ref=>textRef=ref} className="explanation-container" style={{width:"50%"}}>
-                <span className="purple-header">FAQ</span>
-                <span className="explanation-header">Frequently Asked Questions</span>                
+                <span className="purple-header" style={{color:colors.mini}}>FAQ</span>
+                <span className="explanation-header" style={{color:colors.large}}>Frequently Asked Questions</span>                
                 <div className="swirl" style={{marginBottom:"2rem"}}>
                 </div>
                 <div className="question-container" onClick={()=>openFAQ('one')}>
-                    <span>01. Is Skillsme a recruiting agency?</span>
+                    <span style={{color:colors.large}}>01. Is Skillsme a recruiting agency?</span>
                     <div className="answer-holder one">
-                    <p className="answer">We are not a recruitment agency! Skillsme is an open talent pool that all companies can access to and find the talent they needed. As long as you have a valid rating on Skillsme, you would have the chance to engage with any company which is looking for a suitable IT talent.</p>
+                    <p className="answer" style={{color:colors.description}}>We are not a recruitment agency! Skillsme is an open talent pool that all companies can access to and find the talent they needed. As long as you have a valid rating on Skillsme, you would have the chance to engage with any company which is looking for a suitable IT talent.</p>
                     </div>
                     <div className="purple-rectangle"/>
                     <div className="purple-rectangle" style={{width:"3rem",height:"4rem",marginRight:"0.5rem"}}/>
                     <div className="purple-rectangle" style={{width:"2rem",height:"2rem",marginRight:"1rem",top:"1rem"}}/>
                 </div>
                 <div className="question-container" onClick={()=>openFAQ('two')}>
-                    <span>02. How much does it cost for validating?</span>
+                    <span style={{color:colors.large}}>02. How much does it cost for validating?</span>
                     <div className="answer-holder two">
-                        <p className="answer">Good news! Getting validation from the top developers on Skillsme is totally free. You just need to post your project to see what they think about your work.</p>
+                        <p className="answer" style={{color:colors.description}}>Good news! Getting validation from the top developers on Skillsme is totally free. You just need to post your project to see what they think about your work.</p>
                     </div>
                     <div className="purple-rectangle"/>
                     <div className="purple-rectangle" style={{width:"3rem",height:"4rem",marginRight:"0.5rem"}}/>
                     <div className="purple-rectangle" style={{width:"2rem",height:"2rem",marginRight:"1rem",top:"1rem"}}/>
                 </div>
                 <div className="question-container" onClick={()=>openFAQ('three')}>
-                    <span>03. What is Skillsme Catalog?</span>
+                    <span style={{color:colors.large}}>03. What is Skillsme Catalog?</span>
 
                     <div className="answer-holder three">
-                        <p className="answer ">
+                        <p className="answer " style={{color:colors.description}}>
                             Skillsme Catalog is a project topic with several specified requirements for coders to build their projects and show their capabilities through it. There are two types of Catalogs on Skillsme: Practice and Rating.
 
                             Practice Catalog allows you to practice your coding skills with real projects, you can try them unlimited times, but such projects won't be counted into your stats and are not visible for employers.
@@ -120,19 +123,19 @@ export const FAQ = () =>{
                     <div className="purple-rectangle" style={{width:"2rem",height:"2rem",marginRight:"1rem",top:"1rem"}}/>
                 </div>
                 <div className="question-container" onClick={()=>openFAQ('four')}>
-                    <span>04. How long would it take for validation?</span>
+                    <span style={{color:colors.large}}>04. How long would it take for validation?</span>
 
                     <div className="answer-holder four">
-                        <p className="answer">The time may vary depending on your code quality, as our Judges would give rating only base on their personal interest. But normally a project can get validated within 3 days.</p>
+                        <p className="answer" style={{color:colors.description}}>The time may vary depending on your code quality, as our Judges would give rating only base on their personal interest. But normally a project can get validated within 3 days.</p>
                     </div>
                     <div className="purple-rectangle"/>
                     <div className="purple-rectangle" style={{width:"3rem",height:"4rem",marginRight:"0.5rem"}}/>
                     <div className="purple-rectangle" style={{width:"2rem",height:"2rem",marginRight:"1rem",top:"1rem"}}/>
                 </div>
                 <div className="question-container" onClick={()=>openFAQ('five')}>
-                    <span>05. How to make sure the rating is fair?</span>
+                    <span style={{color:colors.large}}>05. How to make sure the rating is fair?</span>
                     <div className="answer-holder five">
-                        <p className="answer ">All users on our platform are anonymous, and no one can invite others to review their works or search for a certain project. Your projects' rating will only be judge by the quality of the project. Meanwhile, our pushing algorithm will ensure every project has a fair chance to be visible to other Judges within our community.</p>
+                        <p className="answer " style={{color:colors.description}}>All users on our platform are anonymous, and no one can invite others to review their works or search for a certain project. Your projects' rating will only be judge by the quality of the project. Meanwhile, our pushing algorithm will ensure every project has a fair chance to be visible to other Judges within our community.</p>
                     </div>
                     <div className="purple-rectangle"/>
                     <div className="purple-rectangle" style={{width:"3rem",height:"4rem",marginRight:"0.5rem"}}/>

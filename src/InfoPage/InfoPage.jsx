@@ -29,6 +29,7 @@ export const InfoPage = (props) =>{
         ()=>{
                 
             function f(){
+                console.log(colors)
                 timelineOne
                 .fromTo(titleRef, { transform:"translateY(-5%)" , opacity:0 }, { transform:"translateY(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.8 },0)
                 .fromTo(subRef, { transform:props.reverse?"translateX(5%)":"translateX(-5%)" , opacity:0 }, { transform:"translateY(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.8 },0)

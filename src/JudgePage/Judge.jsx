@@ -3,6 +3,7 @@ import "./JudgePage.css";
 import gsap from 'gsap';
 
 export const Judge = (props) =>{
+
     const imagesrc = `https://myskillsme.com/images/judges`;
 
     let g = gsap.timeline();
