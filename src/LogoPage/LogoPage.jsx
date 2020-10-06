@@ -24,11 +24,11 @@ import vend from "./logos/vend.png"
 import xero from "./logos/xero.png"
 import zendesk from "./logos/zendesk.png"
 import three from "./03.png"
-import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
+import gsap, { Power1 } from "gsap";
 import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 import { useSelector } from 'react-redux'
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+ScrollMagicPluginGsap(ScrollMagic, gsap);
 
 export const LogoPage = () =>{
 

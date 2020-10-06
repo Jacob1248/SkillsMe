@@ -14,13 +14,9 @@ import { JudgePage } from './JudgePage/JudgePage';
 import { FAQ } from './faq/FAQ';
 import { ContactUs } from './ContactUs/ContactUs';
 import { Footer } from './Footer/Footer';
-import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
-import ScrollMagic from "scrollmagic";
-import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 import { ToolBar } from './ToolBar/ToolBar';
 import { CommentToolbar } from './CommentToolbar/CommentToolbar';
 import { ColorChanger } from './ColorChanger/ColorChanger';
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
 function App() {
   let triggerRef = null;
@@ -30,7 +26,7 @@ function App() {
       <header className="App-header">
       <link rel="preconnect"
       href="https://fonts.googleapis.com"
-      crossOrigin />
+      crossOrigin="true" />
       <link rel="preload"
       as="style"
       href="https://fonts.googleapis.com/css?family=Montserrat:400,900,600&display=swap" />
@@ -40,7 +36,7 @@ function App() {
 
       <link rel="preconnect"
       href="https://cdnjs.cloudflare.com"
-      crossorigin />
+      crossOrigin="true" />
       <link rel="preload"
       as="style"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -48,7 +44,7 @@ function App() {
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       />
       </header>
-      <body ref={ref=>triggerRef=ref} className="body" >
+      <div ref={ref=>triggerRef=ref} className="body" >
         <Navbar triggerRef={triggerRef}></Navbar>
         <Landing></Landing>
         <LogoPage></LogoPage>
@@ -115,7 +111,7 @@ function App() {
         <ToolBar></ToolBar>
         <ColorChanger ></ColorChanger>
         <CommentToolbar ></CommentToolbar>
-      </body>
+      </div>
     </div>
   );
 }

@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import "./ToolBar.css";
 import gsap from "gsap"
-import { CommentToolbar } from '../CommentToolbar/CommentToolbar';
-import { ColorChanger } from '../ColorChanger/ColorChanger';
 import { setClick,toggleComments,toggleColor,closeBoth } from '../redux/actions';
 import {useDispatch} from 'react-redux'
 import {useSelector} from 'react-redux'
 
-export const ToolBar = (props) =>{
+export const ToolBar = () =>{
 
     const clickedElement = useSelector(state => state.rootReducer.clickedElement)
 
@@ -44,15 +42,8 @@ export const ToolBar = (props) =>{
     )
 
     const ID = () => {
-      // Math.random should be unique because of its seeding algorithm.
-      // Convert it to base 36 (numbers + letters), and grab the first 9 characters
-      // after the decimal.
       return '_' + Math.random().toString(36).substr(2, 9);
     };
-
-    const openViewWindow = () =>{
-      
-    }
 
     const openCommentWindow = () =>{
         if(highlightedElement.current)
@@ -60,11 +51,8 @@ export const ToolBar = (props) =>{
         if(clickedElement){
           let c= clickedElement
           c.style.border = "none"
-            //setClickedElement(null)
         }
         dispatch(toggleComments());
-        //openComment(!comment)
-        //openColor(false)
     }
     
     const resetAll = () =>{
@@ -73,17 +61,13 @@ export const ToolBar = (props) =>{
         if(clickedElement){
           let c= clickedElement
           c.style.border = "none"
-          //setClickedElement(null)
         }
         dispatch(closeBoth())
-        //openComment(false)
-        //openColor(false)
     }
 
     let highlightedElement = useRef(null)
 
     const highlightElement = (e) =>{
-      console.log("hello")
         if(e.target.id==="close-button")
           return;
         if(clickedElement===null){
@@ -108,7 +92,6 @@ export const ToolBar = (props) =>{
           if(!e.target.id)
             e.target.id = ID();
           dispatch(setClick(e.target))
-          //setClickedElement(e.target);
           console.log("here")
         }
         else{
@@ -117,7 +100,6 @@ export const ToolBar = (props) =>{
             let c = clickedElement
             c.style.border = "none"
             dispatch(setClick(null))
-            //setClickedElement(null);
           }
         }
     } 
@@ -131,22 +113,12 @@ export const ToolBar = (props) =>{
         }
     })
 
-    useEffect(        
-        ()=>{
-                
-            function f(){
-            }
-            f();
-        }
-    )
-
     const openColorWindow = () =>{
       if(highlightedElement.current)
         highlightedElement.current.style.border = "none"
       if(clickedElement){
         let c= clickedElement
         c.style.border = "none"
-          //setClickedElement(null)
       }
       dispatch(toggleColor());
     }

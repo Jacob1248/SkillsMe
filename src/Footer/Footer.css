@@ -138,3 +138,30 @@
         transform: rotate(0deg);
     }
 }
+
+@media only screen and (max-width:1023px){
+    .sponsor-holder img{
+        width: 30%;
+        margin-top: 1rem;
+    }
+
+    .footer-form{
+        width: 90%;
+        margin-bottom: 1rem;
+    }
+
+    .input-button input{
+        width: 90%;
+    }
+
+    .footer-info{
+        flex-direction: column;
+    }
+    .footer-info span:nth-child(1){
+        margin-bottom: 1rem;
+    }
+    .footer-end{
+        flex-direction: column;
+        text-align: center;
+    }
+}

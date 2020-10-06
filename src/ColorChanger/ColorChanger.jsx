@@ -1,7 +1,6 @@
 import React from 'react';
 import "./ColorChanger.css";
 import {useSelector, useDispatch} from 'react-redux'
-import gsap from "gsap";
 import { changeColor, toggleColor } from '../redux/actions';
 
 export const ColorChanger = () =>{

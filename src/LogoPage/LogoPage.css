@@ -112,3 +112,22 @@
         background-position: -500%;
     }
 }
+
+
+
+@media only screen and (max-width:1023px){
+    .logo-page{
+        flex-direction: column-reverse;
+    }
+
+    .explanation-container{
+        width: 90%;
+        margin-top: 2rem;
+        margin-left: 1.5rem;
+    }
+
+    .logo-container{
+        width: 90%;
+        margin-left: 1.5rem;
+    }
+}

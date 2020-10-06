@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import "./FAQ.css";
 import woman from "./woman.png"
-import gsap, { TimelineMax, TweenMax,Power1 } from "gsap";
+import gsap, { Power1 } from "gsap";
 import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 import { useSelector } from 'react-redux';
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+ScrollMagicPluginGsap(ScrollMagic, gsap);
 
 export const FAQ = () =>{
 
@@ -82,8 +82,8 @@ export const FAQ = () =>{
 
     return(
         <div ref={ref=>pageRef=ref} className="faq">
-            <img ref={ref=>imageRef=ref} src={woman} style={{width:"40%",height:"50%"}}></img>
-            <div ref={ref=>textRef=ref} className="explanation-container" style={{width:"50%"}}>
+            <img ref={ref=>imageRef=ref} src={woman}></img>
+            <div ref={ref=>textRef=ref} className="explanation-container">
                 <span className="purple-header" style={{color:colors.mini}}>FAQ</span>
                 <span className="explanation-header" style={{color:colors.large}}>Frequently Asked Questions</span>                
                 <div className="swirl" style={{marginBottom:"2rem"}}>

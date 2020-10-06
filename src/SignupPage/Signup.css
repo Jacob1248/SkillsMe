@@ -29,6 +29,7 @@
     padding-top: 5rem;
     justify-content: space-around;
     position: relative;
+    height: 65vh;
 }
 
 .girl{
@@ -81,4 +82,50 @@
     100% {
         background-position: 0% 50%;
     }
+}
+
+@media only screen and (max-width:1023px){
+    .row-reverse{
+        display: flex;
+        flex-direction: column-reverse;
+        padding-top: 5rem;
+        justify-content: space-around;
+        position: relative;
+        height: fit-content;
+        padding-bottom: 2rem;
+    }
+
+    .text-signup{
+        position: relative;
+        right: initial;
+        width: 90%;
+        margin-left: 1.5rem;
+    }
+
+    .girl{
+        position: relative;
+        width: 90vw;
+        height: 70vw;
+        margin-left: 1.5rem;
+        bottom: initial;
+        left: initial;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .showcase{
+        flex-direction: column;
+    }
+
+    .showcase-item{
+        width: 90%;
+        text-align: center;
+        margin-left: 1.5rem;
+    }
+
+    .mobile-centered{
+        margin: auto;
+    }
+    
 }

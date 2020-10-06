@@ -9,7 +9,7 @@ export const Spinner = () =>{
 //text-right
     return(
         <div className='spinner-container container-border'>
-            <img src={spinner}></img>
+            <img alt="spinner" src={spinner}></img>
             <div style={{display:"flex",justifyContent:"space-between",marginTop:"1rem"}}>
                 <div className="name-img">
                     <img src={mouse}></img>

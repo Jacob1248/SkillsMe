@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import "./Navbar.css"
 import logo from "./logo.png"
-import gsap, { TimelineMax, TweenMax, TweenLite,Power1 } from "gsap";
+import gsap, { Power1 } from "gsap";
 import ScrollMagic from "scrollmagic";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 import { useSelector } from 'react-redux';
-ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+ScrollMagicPluginGsap(ScrollMagic, gsap);
 
 export const Navbar = (props) =>{
 
@@ -31,7 +31,7 @@ export const Navbar = (props) =>{
                 .to('.nav', { transform:"translateY(0)",position:"fixed" , opacity:1 , ease:Power1.easeInOut ,duration:0.5,backgroundColor:colors.navbg },0)
                 new ScrollMagic.Scene({
                   triggerElement: props.triggerRef,
-                  offset:'350',
+                  offset:'100',
                   duration: "0%"
                 })
                   .setTween(timelineOne)
@@ -64,17 +64,17 @@ export const Navbar = (props) =>{
         <nav className="nav" style={{color:colors.nav}}>
                 <ul>
                     <a href="index.html" title="Logo"><img src={logo} alt="images" /></a>
-                    <ul>
+                    <ul className="laptop">
                         <li><a>Home</a></li>
                         <li><a>Skillsme Uni</a></li>
                         <li><a>Skillsme Talent</a></li>
                         <li><a>Press</a></li>
                     </ul>
-    
                 </ul>
-            <ul>
-                <li><button className="button-login" id="close-button" style={{content:"Log In"}}><span>Log In</span></button></li>
-                <li><button className="button-signup" style={{content:"Log In"}}><span>Sign Up</span></button></li>
+                    <span className="fa fa-bars fa-lg mobile"></span>
+            <ul className="laptop">
+                <li  className="laptop"><button className="button-login" id="close-button" style={{content:"Log In"}}><span>Log In</span></button></li>
+                <li  className="laptop"><button className="button-signup" style={{content:"Log In"}}><span>Sign Up</span></button></li>
             </ul>
         </nav>
     )

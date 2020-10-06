@@ -1,6 +1,5 @@
 .landing{
     top: 0;
-    background-image: url(./skillshome.png);
     background-size: cover;
     width: calc(100vw - 4.1rem);
     min-height: 100vh;
@@ -9,6 +8,24 @@
     padding-left: 4rem;
     justify-content: left;
     overflow-y: hidden;
+}
+
+.arrow-left{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    margin-left: 0.1rem;
+    cursor: pointer;
+}
+
+.arrow-right{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    margin-left: 0.2rem;
+    cursor: pointer;
 }
 
 
@@ -42,4 +59,27 @@
     margin-top: 7rem;
     width: 45%;
     height: 45%;
+}
+
+@media only screen and (max-width:1023px){
+    .landing{
+        flex-direction: column;
+        min-height: fit-content;
+        padding-bottom: 5rem;
+    }
+
+    .info-area{
+        width: 90%;
+    }
+
+    .landing img{
+        width: 90%;
+    }
+
+    .landing img{
+        display: none;
+    }
+    .main-header{
+        font-size: 2rem;
+    }
 }

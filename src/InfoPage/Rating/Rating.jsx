@@ -7,11 +7,11 @@ export const Rating = () =>{
 
     return(<div className="rating container-border">
         <div className="judge-info">
-            <img src={box}></img>
+            <img alt="box" src={box}></img>
             <div style={{display:"flex",flexDirection:"column"}}>
                 <div style={{display:"flex",flexDirection:"row"}}>
                     <span>Jason M.</span>
-                    <img src={medal} style={{width:"1.3rem",height:"1.3rem",marginLeft:"0.4rem"}}></img>
+                    <img alt="rating" src={medal} style={{width:"1.3rem",height:"1.3rem",marginLeft:"0.4rem"}}></img>
                     <div className="tag" style={{color:"white",backgroundColor:"blue"}}>
                         4.10/5.00
                     </div>
