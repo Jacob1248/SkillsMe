@@ -1,5 +1,4 @@
 .logo-page{
-    width: calc(100vw - 0.9rem);
     min-height: 100vh;
     background-color: #f5f5f3;
     display: flex;
@@ -113,21 +112,33 @@
     }
 }
 
+.logo-explanation-container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
 
 
 @media only screen and (max-width:1023px){
     .logo-page{
         flex-direction: column-reverse;
+        width: 100%;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
     }
 
-    .explanation-container{
-        width: 90%;
-        margin-top: 2rem;
-        margin-left: 1.5rem;
+    .logo-explanation-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 3rem;
     }
-
     .logo-container{
         width: 90%;
         margin-left: 1.5rem;
+    }
+
+    .box-holder{
+        width: 100%;
     }
 }

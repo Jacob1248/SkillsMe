@@ -14,7 +14,7 @@ export const FAQ = () =>{
     let g = gsap.timeline();
     let [open,setOpen] = useState(null);
 
-    const [scrollMagic, setScrollMagic] = useState({
+    const [scrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
         timelineOne: gsap.timeline(),
     });
@@ -53,7 +53,6 @@ export const FAQ = () =>{
                   offset:"200"
                 })
                   .setTween(timelineOne)
-                  .setPin("#main-header")
                   .addTo(controller);
                 }
             }

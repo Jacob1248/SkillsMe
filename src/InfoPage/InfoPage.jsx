@@ -15,7 +15,7 @@ export const InfoPage = (props) =>{
         return <Item></Item>
     }
 
-    const [scrollMagic, setScrollMagic] = useState({
+    const [scrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
         timelineOne: gsap.timeline(),
     });
@@ -44,7 +44,6 @@ export const InfoPage = (props) =>{
                   offset:"200"
                 })
                   .setTween(timelineOne)
-                  .setPin("#main-header")
                   .addTo(controller);
             }
             f();
@@ -64,7 +63,7 @@ export const InfoPage = (props) =>{
                 <p className="explanation-description" style={{color:colors.description}}>{props.subExplanationDescription}</p>
                 </div>
             </div>
-            <div ref={ref=>contentRef=ref} id="" s className="item-holder" >
+            <div ref={ref=>contentRef=ref} id="" className="item-holder" >
                 {
                     getComponentFromProps()
                 }

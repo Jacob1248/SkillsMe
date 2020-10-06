@@ -3,7 +3,7 @@ import "./CommentToolbar.css";
 import {useSelector} from 'react-redux'
 import gsap from "gsap";
 
-export const CommentToolbar = (props) =>{
+export const CommentToolbar = () =>{
 
     const element = useSelector(state => state.rootReducer.clickedElement)
 
@@ -24,6 +24,7 @@ export const CommentToolbar = (props) =>{
     }
 
     let nameRef,commentRef = null;
+
     let [openState,setOpenState] = useState({
         addOpen:false,
         commentOpen:false
@@ -34,7 +35,7 @@ export const CommentToolbar = (props) =>{
     let [comments,setComments] = useState({})
 
     const deleteComment = (value) =>{
-        //delete comments[element.id]
+        //deletes comment pertaining to an id
         for(var i = 0; i < comments[element.id].length; i++)
         {
           if(comments[element.id][i].id === value)
@@ -57,7 +58,7 @@ export const CommentToolbar = (props) =>{
             alert('Select an element first!')
         }
     }
-    
+
     const ID = () => {
       return '_' + Math.random().toString(36).substr(2, 9);
     };
@@ -71,14 +72,15 @@ export const CommentToolbar = (props) =>{
                         ...comments
                     };
                     if(commentsTemp[element.id]){
+                        //if element exists then append to the end of elements comment array
                         commentsTemp[element.id].push({
                             id:ID(),
                             name:nameRef.value,
                             comment:commentRef.value
                         })
-                        //alert('A comment is already left on this item! You should delete that first in order to leave a new comment!')
                     }
                     else{
+                        //if element doesnt exist in array then create a new entry
                         commentsTemp[element.id] = [{
                             id:0,
                             name:nameRef.value,
@@ -127,12 +129,10 @@ export const CommentToolbar = (props) =>{
             }
             if(openState.commentOpen){
                 g
-                .clear()
                 .to('.edit-area',{scale:1,duration:0.5})
             }
             else{
                 g
-                .clear()
                 .to('.edit-area',{scale:0,duration:0.5})
             }
         }

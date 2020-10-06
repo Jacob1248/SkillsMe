@@ -13,7 +13,7 @@ ScrollMagicPluginGsap(ScrollMagic, gsap);
 export const Review = () =>{
     const colors = useSelector(state => state.rootReducer.colorPalette)
 
-    const [scrollMagic, setScrollMagic] = useState({
+    const [scrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
         timelineOne: gsap.timeline(),
     });
@@ -35,7 +35,6 @@ export const Review = () =>{
                   offset:"200"
                 })
                   .setTween(timelineOne)
-                  .setPin("#main-header")
                   .addTo(controller);
             }
             f();

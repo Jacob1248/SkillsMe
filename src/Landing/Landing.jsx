@@ -14,18 +14,24 @@ ScrollMagicPluginGsap(ScrollMagic, gsap);
 export const Landing = () =>{
     const colors = useSelector(state => state.rootReducer.colorPalette)
 
-    const [scrollMagic, setScrollMagic] = useState({
+    const [scrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
         timelineOne: gsap.timeline()
     });
 
+    
     const { controller,timelineOne} = scrollMagic;
 
     let c = useRef(null);
 
     useEffect(() => {
+        if(c.current!==null){
+            c.current.destroy(true);
+            c.current = null;
+        }
         timelineOne
-        .fromTo('.main-header', { transform:"translateY(100%)" , opacity:0 }, { transform:"translateY(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.2 })
+        .clear()
+        .fromTo('.main-header', { transform:"translateY(100%)" , opacity:0 }, { transform:"translateY(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.2, })
         .fromTo('.secondary-header',0.2,{ transform:"translateY(100%)" , opacity:0 }, { transform:"translateY(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.2 })
         .fromTo('.sub-text',0.4,{ transform:"translateY(100%)" , opacity:0 }, { transform:"translateY(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.1 })
         .fromTo('.button-rated',0.5,{ transform:"translateY(100%)" , opacity:0 }, { transform:"translateY(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.1 })
@@ -36,7 +42,6 @@ export const Landing = () =>{
           duration: "0%"
         })
           .setTween(timelineOne)
-          .setPin("#main-header")
           .addTo(controller)
         return () => {
         }
@@ -75,13 +80,13 @@ export const Landing = () =>{
             setPages(pages-1)
         }
         else{
-            alert("Cant go back any more pages")
+            setPages(pages+1)
         }
     }
 
     const incrementPage = () =>{
         if(pages+1>1){
-            alert("Cant go forward any more pages")
+            setPages(pages-1)
         }
         else{
             setPages(pages+1)

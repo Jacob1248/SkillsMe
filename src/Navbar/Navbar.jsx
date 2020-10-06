@@ -12,7 +12,7 @@ export const Navbar = (props) =>{
     const colors = useSelector(state => state.rootReducer.colorPalette)
 
     let g = gsap.timeline()
-    const [scrollMagic, setScrollMagic] = useState({
+    const [scrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
         timelineOne: gsap.timeline(),
         timelineTwo:gsap.timeline(),
@@ -35,7 +35,6 @@ export const Navbar = (props) =>{
                   duration: "0%"
                 })
                   .setTween(timelineOne)
-                  .setPin("#main-header")
                   .addTo(controller);
                 timelineTwo
                 .to('.nav',{ position:"absolute", opacity:1,backgroundColor:"transparent",transform:"translateY(0%)" ,duration:0.5},0)
@@ -45,7 +44,6 @@ export const Navbar = (props) =>{
                   duration: "0%"
                 })
                   .setTween(timelineTwo)
-                  .setPin("#main-header")
                   .addTo(controller)
                   
               if(window.scrollY>350){
@@ -71,7 +69,7 @@ export const Navbar = (props) =>{
                         <li><a>Press</a></li>
                     </ul>
                 </ul>
-                    <span className="fa fa-bars fa-lg mobile"></span>
+                    <span className="fa fa-bars fa-lg mobiles"></span>
             <ul className="laptop">
                 <li  className="laptop"><button className="button-login" id="close-button" style={{content:"Log In"}}><span>Log In</span></button></li>
                 <li  className="laptop"><button className="button-signup" style={{content:"Log In"}}><span>Sign Up</span></button></li>

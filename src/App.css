@@ -49,6 +49,11 @@ button:hover:after{
   opacity: 1;
 }
 
+.body{
+  overflow-x: hidden;
+  width: 100vw;
+}
+
 button:hover{
   border-color: transparent;
   transition: all 0.8s ease-in-out;

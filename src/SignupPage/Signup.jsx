@@ -7,7 +7,7 @@ ScrollMagicPluginGsap(ScrollMagic, gsap);
 
 export const Signup = () =>{
 
-    const [scrollMagic, setScrollMagic] = useState({
+    const [scrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
         timelineOne: gsap.timeline(),
     });
@@ -29,7 +29,6 @@ export const Signup = () =>{
                   offset:"200"
                 })
                   .setTween(timelineOne)
-                  .setPin("#main-header")
                   .addTo(controller);
             }
             f();

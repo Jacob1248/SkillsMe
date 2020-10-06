@@ -34,7 +34,7 @@ export const LogoPage = () =>{
 
     const colors = useSelector(state => state.rootReducer.colorPalette)
 
-    const [scrollMagic, setScrollMagic] = useState({
+    const [scrollMagic] = useState({
         controller: new ScrollMagic.Controller(),
         timelineOne: gsap.timeline(),
     });
@@ -57,7 +57,6 @@ export const LogoPage = () =>{
                   offset:"200"
                 })
                   .setTween(timelineOne)
-                  .setPin("#main-header")
                   .addTo(controller);
             }
             f();
@@ -66,7 +65,7 @@ export const LogoPage = () =>{
 
     return(
         <div className="logo-page">
-            <div id="logo-explanation" className="explanation-container">
+            <div id="logo-explanation" className="logo-explanation-container">
                 <img src={three} style={{position:"absolute",right:"0"}}></img>
                 <span className="purple-header" style={{color:colors.mini}}>Find a Job worldwide without a resume.</span>
                 <span className="explanation-header" style={{color:colors.large}}>Get referred to over 10K companies with your ratings</span>

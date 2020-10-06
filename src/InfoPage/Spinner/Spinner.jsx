@@ -4,15 +4,13 @@ import spinner from "./spinner.jpg";
 import mouse from "./16.png"
 
 export const Spinner = () =>{
-//spinner-up
-//heading-down
-//text-right
+    
     return(
         <div className='spinner-container container-border'>
             <img alt="spinner" src={spinner}></img>
             <div style={{display:"flex",justifyContent:"space-between",marginTop:"1rem"}}>
                 <div className="name-img">
-                    <img src={mouse}></img>
+                    <img alt="mouse" src={mouse}></img>
                     <span>Mark T.</span>
                 </div>
                 <div className="tag">

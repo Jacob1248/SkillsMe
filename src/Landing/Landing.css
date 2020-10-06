@@ -82,4 +82,9 @@
     .main-header{
         font-size: 2rem;
     }
+    .button-rated{
+        width: 50%;
+        display: flex;
+    }
+    
 }

@@ -1,6 +1,6 @@
 .info-page{
     height: fit-content;
-    width: calc(100vw - 0.9rem);
+    width: 100vw;
     padding: 5rem;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
