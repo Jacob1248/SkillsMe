@@ -20,7 +20,7 @@ export const FAQ = () =>{
     });
 
     const { controller,timelineOne} = scrollMagic;
-    let textRef,pageRef,imageRef=null;
+    let textRef,pageRef=null;
 
     useEffect(
         ()=>{
@@ -44,6 +44,7 @@ export const FAQ = () =>{
                     }
                 }
                 else{
+
                 timelineOne
                 .fromTo(textRef, { transform:"translateX(5%)" , opacity:0 }, { transform:"translateX(0)" , opacity:1 , ease:Power1.easeInOut ,duration:0.8 },0)
                 new ScrollMagic.Scene({
@@ -81,7 +82,7 @@ export const FAQ = () =>{
 
     return(
         <div ref={ref=>pageRef=ref} className="faq">
-            <img ref={ref=>imageRef=ref} src={woman}></img>
+            <img src={woman}></img>
             <div ref={ref=>textRef=ref} className="explanation-container">
                 <span className="purple-header" style={{color:colors.mini}}>FAQ</span>
                 <span className="explanation-header" style={{color:colors.large}}>Frequently Asked Questions</span>                

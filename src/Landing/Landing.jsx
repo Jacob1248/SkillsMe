@@ -26,7 +26,7 @@ export const Landing = () =>{
 
     let c = useRef(null);
 
-    let page1Ref,page2Ref = null;
+    let page2Ref = null;
 
     useEffect(() => {
         if(pages===0){
@@ -61,7 +61,6 @@ export const Landing = () =>{
     })
 
     let [pages,setPages] = useState(0);
-    
     const decrementPage = () =>{
         if(pages-1>=0){
             setPages(pages-1)
@@ -82,7 +81,7 @@ export const Landing = () =>{
 
     return(
         <div className="landing" style={{backgroundSize:"cover"}}>
-            <div ref={ref=>page1Ref=ref} style={{backgroundImage:`url(./${skillshome})`,backgroundSize:"cover"}} id="slider-1" className="slider-info">
+            <div style={{backgroundImage:`url(./${skillshome})`,backgroundSize:"cover"}} id="slider-1" className="slider-info">
             <div className="info-area">
                 <span className="main-header" style={{color:colors.boldLarge}}>Land a coding</span>
                 <span className="main-header" style={{color:colors.boldLarge}}>job with</span>
@@ -91,9 +90,7 @@ export const Landing = () =>{
                 <span className="sub-text" style={{color:colors.boldLarge}}>Receive your Skillsme rating by completing real projects and get</span>
                 <span className="sub-text" style={{marginBottom:"1rem",color:colors.boldLarge}}>validated by the world’s top 5% coders.</span>
                 <button className="button-rated"><span>Get rated now</span></button>
-
-                    <div className="fa arrow-right fa-angle-right fa-left fa-2x" onClick={()=>incrementPage()} style={{color:"white"}}></div>
-            </div>
+            </div><div className="fa arrow-right fa-angle-right fa-2x" onClick={()=>incrementPage()} style={{color:"white"}}></div>
             <img className="hero-image" src={men}></img>
             </div>
             <div ref={ref=>page2Ref=ref} style={{backgroundImage:`url(./${blackbg})`,backgroundSize:"cover",zIndex:900,position:"absolute",left:"100vw"}} id="slider-2" className="slider-info">

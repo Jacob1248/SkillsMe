@@ -43,7 +43,7 @@ export const Review = () =>{
 
     return(
         <div ref={ref=>pageRef=ref} className="review">
-            <span ref={ref=>textRef=ref} className="main-review" style={{fontSize:"2.2rem",fontWeight:"bold",color:"white",color:colors.boldLarge}}>
+            <span ref={ref=>textRef=ref} className="main-review" style={{fontSize:"2.2rem",fontWeight:"bold",color:colors.boldLarge}}>
                 Skillsme makes coders expertise intelligible.
             </span>
             <div className="bubble-holder">
@@ -66,12 +66,12 @@ export const Review = () =>{
                     <span className="fa fa-star" style={{marginRight:"0.4rem",color:"gold"}}></span>
                     <span className="fa fa-star" style={{marginRight:"0.4rem",color:"gold"}}></span>
                 </div>
-                <p style={{color:"white",lineHeight:"2",color:colors.boldLarge}}>
+                <p style={{lineHeight:"2",color:colors.boldLarge}}>
                 I really love this idea, and I am also very happy to involve it. I believe this product can bring much more new opportunities to new developers, and help them find their own way to get into the industry.      
                 </p>
-                <span style={{color:"white",fontWeight:"bold",marginTop:"1rem",color:colors.boldLarge}}>Leon Zhou</span>
+                <span style={{fontWeight:"bold",marginTop:"1rem",color:colors.boldLarge}}>Leon Zhou</span>
                 <br/>
-                <span style={{color:"#FFC600",marginTop:"0.5rem",color:colors.boldLarge}}>Former Vend Senior Engineer</span>
+                <span style={{marginTop:"0.5rem",color:colors.boldLarge}}>Former Vend Senior Engineer</span>
             </div>
             <div className="review-container" style={{marginLeft:"2%"}}>
                 <div className="transparent-bg">
@@ -90,12 +90,12 @@ export const Review = () =>{
                     <span className="fa fa-star" style={{marginRight:"0.4rem",color:"gold"}}></span>
                     <span className="fa fa-star" style={{marginRight:"0.4rem",color:"gold"}}></span>
                 </div>
-                <p style={{color:"white",lineHeight:"2",color:colors.boldLarge}}>
+                <p style={{lineHeight:"2",color:colors.boldLarge}}>
                 I've known the CTO and CEO for more than 3 years. And they really have strong passion on creating something new and valuable for customers. So I believe they will make this product great in the near future.      
                 </p>
-                <span style={{color:"white",fontWeight:"bold",marginTop:"1rem",color:colors.boldLarge}}>Rick Luo</span>
+                <span style={{fontWeight:"bold",marginTop:"1rem",color:colors.boldLarge}}>Rick Luo</span>
                 <br/>
-                <span style={{color:"#FFC600",marginTop:"0.5rem",color:colors.boldLarge}}>Former Oracle PMTS</span>
+                <span style={{marginTop:"0.5rem",color:colors.boldLarge}}>Former Oracle PMTS</span>
             </div>
         </div>
     )

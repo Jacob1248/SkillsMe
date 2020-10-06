@@ -43,7 +43,7 @@ export const ColorChanger = () =>{
             </div>
             <div style={{color:"black",marginTop:"1rem"}}>
                 <span style={{marginRight:"1rem"}}>Description Color:</span>
-                <input defaultValue="gray" defaultValue="#808080" ref={ref=>descriptionRef=ref} type='color'></input>
+                <input defaultValue="#808080" ref={ref=>descriptionRef=ref} type='color'></input>
             </div>
             <div style={{color:"black",marginTop:"1rem"}}>
                 <span style={{marginRight:"1rem"}}>Informative text(Initially white):</span>
